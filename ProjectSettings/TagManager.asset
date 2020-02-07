@@ -41,3 +41,45 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: 11
+    uniqueID: 1384041747
+    locked: 0
+  - name: 10
+    uniqueID: 2849337985
+    locked: 0
+  - name: 9
+    uniqueID: 825638057
+    locked: 0
+  - name: 8
+    uniqueID: 2909142733
+    locked: 0
+  - name: 7
+    uniqueID: 2334364769
+    locked: 0
+  - name: 6
+    uniqueID: 3484253833
+    locked: 0
+  - name: 5
+    uniqueID: 3936466659
+    locked: 0
+  - name: 4
+    uniqueID: 1158565299
+    locked: 0
+  - name: 3
+    uniqueID: 305994151
+    locked: 0
+  - name: 2
+    uniqueID: 1768083435
+    locked: 0
+  - name: 1
+    uniqueID: 355383211
+    locked: 0
+  - name: Item 1
+    uniqueID: 3389608895
+    locked: 0
+  - name: Items 2
+    uniqueID: 1897652041
+    locked: 0
+  - name: Items 3
+    uniqueID: 1141746541
+    locked: 0
