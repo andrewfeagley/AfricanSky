@@ -5,33 +5,40 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    private float rotationSpeed = 5; //speed of turning
+    //used to check whether the Enemy is in sight of enemy
     public bool inSight;
+
     public GameObject player;
     private Rigidbody2D rigidBody;
+
+    //Speed in which the Enemy moves.
     private float movementSpeed;
     public float walkMoveSpeed = 2;
+
+    //Position in which the Enemy is facing.
     private bool facingRight;
+    private bool facingLeft;
+
+    //Max X and Y movement constraints for Enemy
     public float xMin, xMax, yMin, yMax;
 
     void Awake()
     {
-
+        //Searches for the object with the Player tag
         player = GameObject.FindGameObjectWithTag("Player");
+
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
     }
 
-    private void Update()
-    {
-        
-    }
     void FixedUpdate()
     {
+        //Finds and follows the players position while keeping the Enemy in X and Y constraints
         Vector2 direction = player.transform.position - transform.position;
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
         rigidBody.position = new Vector2(Mathf.Clamp(rigidBody.position.x, xMin, xMax), Mathf.Clamp(rigidBody.position.y, yMin, yMax));
 
+        // Flips the direction the Enemy is looking
         if (transform.position.x < player.transform.position.x && !facingRight)
         {
             Flip();
@@ -43,6 +50,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    // Activates as the Enemy enters the inSight trigger
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject == player) {
@@ -50,6 +58,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // deactivates as the Enemy enters the inSight trigger
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject == player) {
@@ -57,6 +66,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //Allows for the Enemy to flip directions when needed.
     private void Flip()
     {
         facingRight = !facingRight;

@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Speed in which the Player moves.
     public float walkMoveSpeed;
-    public float attackMovementSpeed;
+    private float movementSpeed;
+
+    //Max X and Y movement constraints for Player
     public float xMin, xMax, yMin, yMax;
 
-    AnimatorStateInfo currentStateInfo;
-    private float movementSpeed;
+    //AnimatorStateInfo currentStateInfo; - Can collect animation state info.
+    static int currentState;
+    
     private Rigidbody2D rigidBody;
     Animator anim;
+
+    //Position in which the Player is facing.
     private bool facingRight;
     private bool facingLeft;
 
-    static int currentState;
+    
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -23,22 +29,18 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
+        // Collects Player input
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
+        //Takes the movement of the Player and constraints and implements them into the game.
         Vector2 movement = new Vector2(moveHorizontal,moveVertical);
-
         rigidBody.velocity = movement * movementSpeed;
         rigidBody.position = new Vector2(Mathf.Clamp(rigidBody.position.x, xMin, xMax), Mathf.Clamp(rigidBody.position.y, yMin, yMax));
 
+        // Flips the direction the Player is looking
         if (moveHorizontal < 0 && !facingRight) {
             Flip();
         }
@@ -47,19 +49,22 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
+        //Plays attack animation
         if (Input.GetButton("Fire1")) {
             anim.Play("Attack 1");
         } 
 
+        //Plays jump animation
         if (Input.GetButton("Jump"))
         {
                 anim.Play("Jump");
         }
 
-
+        //Plays movement animation
         anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);
     }
 
+    //Allows for the Player to flip directions when needed.
     private void Flip()
     {
             facingRight = !facingRight;

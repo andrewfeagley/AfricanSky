@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 399797418}
   - component: {fileID: 399797422}
   m_Layer: 9
-  m_Name: GraveRobber_idle_0
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkMoveSpeed: 3
-  attackMovementSpeed: 0
   xMin: -0.72
   xMax: 104.75
   yMin: -0.2
