@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//
 public class EnemyController : MonoBehaviour
 {
 
@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
 
     //Max X and Y movement constraints for Enemy
     public float xMin, xMax, yMin, yMax;
-
+    
     void Awake()
     {
         //Searches for the object with the Player tag
