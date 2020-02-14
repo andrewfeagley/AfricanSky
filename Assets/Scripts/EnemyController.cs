@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject player;
     private Rigidbody2D rigidBody;
+    Animator anim;
 
     //Speed in which the Enemy moves.
     private float movementSpeed;
@@ -27,12 +28,21 @@ public class EnemyController : MonoBehaviour
     private GameObject backTarget;
     public float frontTargetDistance;
     public float backTargetDistance;
-    
+
+    //Can collect animation state info.
+    AnimatorStateInfo currentStateInfo;
+
+    //Checks to see what the current state the Enemy is in
+    static int currentState;
+
+    //Takes the states from the animator window
+    static int walkState = Animator.StringToHash("Base Layer.Move");
+
     void Awake()
     {
         //Searches for the object with the Player tag
         player = GameObject.FindGameObjectWithTag("Player");
-        
+        anim = GetComponent<Animator>();
 
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
@@ -41,6 +51,21 @@ public class EnemyController : MonoBehaviour
         backTarget = GameObject.Find("Enemy Back Target");
     }
 
+    private void Update()
+    {
+        //currentStateInfo will equal the info in the animator Base Layer
+        currentStateInfo = anim.GetCurrentAnimatorStateInfo(0);
+
+        //Takes current State info and converts it into an integer code
+        currentState = currentStateInfo.fullPathHash;
+
+        //Checks to see what state the Player is in and then runs code inside the condition
+
+        if (currentState == walkState)
+        {
+            Debug.Log("Walk State");
+        }
+    }
     void FixedUpdate()
     {
         //Finds and follows the players position while keeping the Enemy in X and Y constraints
