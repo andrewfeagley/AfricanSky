@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Background
   - CameraMidPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX

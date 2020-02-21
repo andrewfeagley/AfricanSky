@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class CombatComponent 
 {
-    private CombatController controller;
+    private float health = 100;
 
-    void Awake()
-    {
-        
-    }
-
-    void Punch()
+    public CombatComponent()
     {
 
     }
 
-    void Kick()
+    public void DamagedBy(float damage)
     {
+        health -= damage;
+    }
 
+    public void HealedBy(float heal)
+    {
+        health += heal;
     }
 }
