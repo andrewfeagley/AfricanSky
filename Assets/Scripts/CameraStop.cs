@@ -18,7 +18,7 @@ public class CameraStop : MonoBehaviour
         if (otherObject.tag == "CameraMidPoint")
         {
             otherObject = otherObject.transform.parent.gameObject;
-            otherObject.GetComponent<CameraController>().isFollowing = false;
+            CameraController.isFollowing = false;
             gameObject.SetActive(false);
         }
         

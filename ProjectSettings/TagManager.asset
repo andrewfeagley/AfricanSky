@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Background
   - CameraMidPoint
+  - Enemy
+  - Spawn Trigger
   layers:
   - Default
   - TransparentFX
