@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     //Speed in which the Camera follows
     public float cameraSpeed;
     //Boolean that checks whether the camera is currently following
-    public bool isFollowing;
+    public static bool isFollowing;
 
     public float xMin, xMax;
     //GameObject that the camera will follow
