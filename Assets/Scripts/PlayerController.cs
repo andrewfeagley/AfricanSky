@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
         stateInfo = GetComponent<EntityState>();
+        anim = GetComponent<Animator>();
     }
 
    

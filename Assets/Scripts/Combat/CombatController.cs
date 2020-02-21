@@ -44,6 +44,7 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("hit");
         AnimatorStateInfo state = stateInfo.currentStateInfo; //get current state from player controller's animator
 
         CombatController eCombat = col.gameObject.GetComponent<CombatController>();

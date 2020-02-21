@@ -13,7 +13,7 @@ public abstract class Command
 
     public virtual void Execute(CombatComponent go)
     {
-        this.Log();
+        this.Log(go);
     }
 
     protected virtual string Log()
