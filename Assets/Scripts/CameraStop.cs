@@ -21,6 +21,7 @@ public class CameraStop : MonoBehaviour
             otherObject.GetComponent<CameraController>().isFollowing = false;
             gameObject.SetActive(false);
         }
-        
     }
+
+    
 }
