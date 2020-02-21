@@ -106,6 +106,7 @@ targetDistance = Vector3.Distance (target.transform.position, gameObject.transfo
         if (other.gameObject == player)
         {
             inSight = true;
+            Destroy(gameObject);
         }
     }
     // deactivates as the Player exits the inSight trigger

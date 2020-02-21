@@ -135,6 +135,8 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);
     }
 
+
+
     //Allows for the Player to flip directions when needed.
     private void Flip()
     {

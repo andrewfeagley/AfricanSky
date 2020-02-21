@@ -6,7 +6,6 @@ public class CameraStop : MonoBehaviour
 {
     public GameObject otherObject;
 
-
     private void Start()
     {
         otherObject = GameObject.Find("Camera Mid");
@@ -19,8 +18,7 @@ public class CameraStop : MonoBehaviour
         {
             otherObject = otherObject.transform.parent.gameObject;
             CameraController.isFollowing = false;
-            gameObject.SetActive(false);
-        }
-        
+            gameObject.SetActive(false);          
+        }    
     }
 }
