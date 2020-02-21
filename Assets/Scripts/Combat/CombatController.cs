@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatController : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(BoxCollider2D))]
+public class CombatController : MonoBehaviour //like GameComponent
 {
     [SerializeField] int health;
     [SerializeField] float damage;
