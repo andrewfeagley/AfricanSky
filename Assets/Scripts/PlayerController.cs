@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 
     //Position in which the Player is facing.
     private bool facingRight;
-    private bool facingLeft;
 
     //Can collect animation state info.
     AnimatorStateInfo currentStateInfo;
@@ -92,7 +91,6 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
         //-----------Movement--------------------------------------------
         // Collects Player input
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -138,10 +136,9 @@ public class PlayerController : MonoBehaviour
     //Allows for the Player to flip directions when needed.
     private void Flip()
     {
-            facingRight = !facingRight;
-            Vector2 theScale = transform.localScale;
-            theScale.x *= -1;
-            transform.localScale = theScale;
-
+        facingRight = !facingRight;
+        Vector2 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }    
 }
