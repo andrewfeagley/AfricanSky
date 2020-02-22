@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
     public GameObject target;
     private GameObject frontTarget;
     private GameObject backTarget;
+    public float targetDistance;
     public float frontTargetDistance;
     public float backTargetDistance;
 
@@ -44,9 +45,10 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        
         //Finds and follows the players position while keeping the Enemy in X and Y constraints
         Vector2 direction = player.transform.position - transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
         rigidBody.position = new Vector2(Mathf.Clamp(rigidBody.position.x, xMin, xMax), Mathf.Clamp(rigidBody.position.y, yMin, yMax));
 
         // Flips the direction the Enemy is looking
@@ -64,9 +66,14 @@ public class EnemyController : MonoBehaviour
 
         if (frontTargetDistance < backTargetDistance) {
             target = frontTarget;
+            transform.position = Vector2.MoveTowards(transform.position, frontTarget.transform.position, movementSpeed * Time.deltaTime);
         } else if (frontTargetDistance > backTargetDistance) {
             target = backTarget;
+            transform.position = Vector2.MoveTowards(transform.position, backTarget.transform.position, movementSpeed * Time.deltaTime);
         }
+
+targetDistance = Vector3.Distance (target.transform.position, gameObject.transform.position);
+        
     }
 
     // Activates as the Player enters the inSight trigger
@@ -75,6 +82,7 @@ public class EnemyController : MonoBehaviour
         if (other.gameObject == player)
         {
             inSight = true;
+            Destroy(gameObject);
         }
     }
     // deactivates as the Player exits the inSight trigger

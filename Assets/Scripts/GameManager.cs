@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -14,7 +17,7 @@ public class GameManager : MonoBehaviour
         eArray = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (eArray.Length == 0) {
-            //CameraController.isFollowing = true;
+            CameraController.isFollowing = true;
         }
     }
 }
