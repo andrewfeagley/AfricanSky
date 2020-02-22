@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public EntityState stateInfo;
 
     //used to check whether the Player is in sight of Enemy
     public bool inSight;
 
     public GameObject player;
     private Rigidbody2D rigidBody;
-    Animator anim;
 
     //Speed in which the Enemy moves.
     private float movementSpeed;
@@ -30,21 +30,12 @@ public class EnemyController : MonoBehaviour
     public float frontTargetDistance;
     public float backTargetDistance;
 
-    //Can collect animation state info.
-    AnimatorStateInfo currentStateInfo;
-
-    //Checks to see what the current state the Enemy is in
-    static int currentState;
-
-    //Takes the states from the animator window
-    static int walkState = Animator.StringToHash("Base Layer.Move");
-
     void Awake()
     {
+        stateInfo = GetComponent<EntityState>();
         //Searches for the object with the Player tag
         player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
-
+        
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
 
@@ -52,21 +43,6 @@ public class EnemyController : MonoBehaviour
         backTarget = GameObject.Find("Enemy Back Target");
     }
 
-    private void Update()
-    {
-        //currentStateInfo will equal the info in the animator Base Layer
-        currentStateInfo = anim.GetCurrentAnimatorStateInfo(0);
-
-        //Takes current State info and converts it into an integer code
-        currentState = currentStateInfo.fullPathHash;
-
-        //Checks to see what state the Player is in and then runs code inside the condition
-
-        if (currentState == walkState)
-        {
-            Debug.Log("Walk State");
-        }
-    }
     void FixedUpdate()
     {
         
@@ -125,7 +101,5 @@ targetDistance = Vector3.Distance (target.transform.position, gameObject.transfo
         Vector2 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-
     }
-
 }
