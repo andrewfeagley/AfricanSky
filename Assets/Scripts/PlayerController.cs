@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
