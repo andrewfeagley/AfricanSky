@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public EntityState stateInfo;
-
     //used to check whether the Player is in sight of Enemy
     public bool inSight;
 
@@ -32,7 +30,6 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
-        stateInfo = GetComponent<EntityState>();
         //Searches for the object with the Player tag
         player = GameObject.FindGameObjectWithTag("Player");
         

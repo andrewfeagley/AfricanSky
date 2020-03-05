@@ -4,13 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(CombatComponent))]
 public class CombatController : MonoBehaviour //like GameComponent
 {
-    public CombatComponent combatComponent;
+    private CombatComponent combatComponent;
     private Rigidbody2D rb;
     private Collider2D collider;
 
-    public EntityState stateInfo;
+    private EntityState stateInfo;
     Command command = null;
 
     // Start is called before the first frame update
@@ -24,7 +25,8 @@ public class CombatController : MonoBehaviour //like GameComponent
     {
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
-        stateInfo = GetComponent<EntityState>();  
+        stateInfo = GetComponent<EntityState>();
+        combatComponent = GetComponent<CombatComponent>();
     }
 
     void SetCombatStats()

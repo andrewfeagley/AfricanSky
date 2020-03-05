@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CombatComponent 
+public class CombatComponent : MonoBehaviour
 {
+    [SerializeField] Text healthText;
+
     public float health = 100;
     public float[] attackDamage = new float[3]; //punch, kick, super
 
@@ -24,4 +27,22 @@ public class CombatComponent
     {
         health += heal;
     }
+
+    private void Update()
+    {
+        UpdateText();
+    }
+
+    public void UpdateText()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            healthText.text = $"Player Health:{health}";
+        }
+        else if(gameObject.CompareTag("Enemy"))
+        {
+            healthText.text = $"Enemy Health:{health}";
+        }     
+    }
+
 }

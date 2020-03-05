@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 8833665689627594430}
   - component: {fileID: 8833665689627594434}
   - component: {fileID: 8833665689627594432}
-  - component: {fileID: 6903685891636601569}
+  - component: {fileID: 5348149290523665718}
+  - component: {fileID: 1166566216439759679}
+  - component: {fileID: 726320406949806442}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -97,15 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ac23421e62abf49a8153286cf09732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateInfo: {fileID: 0}
   inSight: 0
-  player: {fileID: 0}
+  player: {fileID: 4857764033542186396, guid: 88da824b0440309418c7e3fb967d33ec, type: 3}
   walkMoveSpeed: 2
   xMin: -0.72
   xMax: 14.73
   yMin: -0.2
   yMax: 4.07
-  target: {fileID: 0}
+  target: {fileID: 4857764033542186396, guid: 88da824b0440309418c7e3fb967d33ec, type: 3}
   targetDistance: 0
   frontTargetDistance: 0
   backTargetDistance: 0
@@ -165,4 +166,44 @@ CircleCollider2D:
   m_Offset: {x: -0.00000003444098, y: 0}
   serializedVersion: 2
   m_Radius: 0.03
-
+--- !u!114 &5348149290523665718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833665689627594425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd03e190dc30e404194672d62ce5343b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatComponent: {fileID: 0}
+--- !u!114 &1166566216439759679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833665689627594425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b3cc10cb7852144991f944faf447a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &726320406949806442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833665689627594425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85814434c4d77424c9c0735ba8f11298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthText: {fileID: 0}
+  enemyHealthText: {fileID: 0}
+  health: 0
+  attackDamage: []

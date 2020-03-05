@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public EntityState stateInfo;
-    Animator anim;
+   Animator anim;
 
     //Speed in which the Player moves.
     public float walkMoveSpeed;
@@ -16,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
-    Animator anim;
     public GameObject attackBox1, attackBox2, attackBox3;
     public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;
     SpriteRenderer currentSprite;
@@ -29,7 +27,6 @@ public class PlayerController : MonoBehaviour
         currentSprite = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
-        stateInfo = GetComponent<EntityState>();
         anim = GetComponent<Animator>();
     }
 
