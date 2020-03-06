@@ -9,7 +9,6 @@ TagManager:
   - Enemy
   - Spawn Trigger
   - Trigger
-  - UI
   layers:
   - Default
   - TransparentFX
@@ -82,6 +81,9 @@ TagManager:
     locked: 0
   - name: Item 1
     uniqueID: 3389608895
+    locked: 0
+  - name: Player
+    uniqueID: 4256076623
     locked: 0
   - name: Items 2
     uniqueID: 1897652041
