@@ -10,7 +10,7 @@ public class CombatController : MonoBehaviour //like GameComponent
     Animator anim;
     public CombatComponent combatComponent;
     private Rigidbody2D rb;
-    private Collider2D collider;
+    //private Collider2D collider;
 
     private EntityState stateInfo;
     Command command = null;
@@ -29,7 +29,7 @@ public class CombatController : MonoBehaviour //like GameComponent
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
         stateInfo = GetComponent<EntityState>();
         combatComponent = GetComponent<CombatComponent>();
         enemyController = GetComponent<EnemyController>();
