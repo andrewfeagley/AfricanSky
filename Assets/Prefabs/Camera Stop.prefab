@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7936534635901833867}
   - component: {fileID: 7936534635901833866}
   - component: {fileID: 7936534635901833909}
-  - component: {fileID: 6218134796038640}
+  - component: {fileID: 7936534635901833865}
   - component: {fileID: 7936534635901833864}
   m_Layer: 0
   m_Name: Camera Stop
@@ -104,7 +104,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6218134796038640
+--- !u!114 &7936534635901833865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c359bb596f9db489247d1ff6b3abbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   otherObject: {fileID: 0}
+  enemy:
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
 --- !u!58 &7936534635901833864
 CircleCollider2D:
   m_ObjectHideFlags: 0

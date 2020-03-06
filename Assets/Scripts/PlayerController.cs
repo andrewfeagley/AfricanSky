@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     //Position in which the Player is facing.
     private bool facingRight;
-    Animator anim;
 
     void Start()
     {
