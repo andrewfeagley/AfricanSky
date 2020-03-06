@@ -10,7 +10,7 @@ public class CombatController : MonoBehaviour //like GameComponent
     Animator anim;
     public CombatComponent combatComponent;
     private Rigidbody2D rb;
-    private Collider2D collider;
+    //private Collider2D collider;
 
     private EntityState stateInfo;
     Command command = null;
@@ -29,7 +29,7 @@ public class CombatController : MonoBehaviour //like GameComponent
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
         stateInfo = GetComponent<EntityState>();
         combatComponent = GetComponent<CombatComponent>();
         enemyController = GetComponent<EnemyController>();
@@ -79,10 +79,21 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //when this player/enemy is entered by an attackbox (hit with weapon)
+        if (col.gameObject.CompareTag("AttackBox"))
+        {
+            Debug.Log("hit box");
+            SetAttackCommand(col);
+        }     
+    }
+
+    void SetAttackCommand(Collider2D col)
+    {
         AnimatorStateInfo state = stateInfo.currentStateInfo; //get current state from player controller's animator
 
         command = null;
 
+        //call command to damage the player/enemy depending on attack
         if (state.IsName("Attack 1"))
         {
             command = new DamageCommand(attackDamage[0]);
@@ -98,7 +109,7 @@ public class CombatController : MonoBehaviour //like GameComponent
 
         if (command != null)
         {
-            command.Execute(col.gameObject.GetComponent<CombatComponent>()); //can we do this without a get component?
+            command.Execute(col.gameObject.transform.parent.GetComponent<CombatComponent>()); //can we do this without a get component?
         }
     }
 

@@ -9,7 +9,7 @@ TagManager:
   - Enemy
   - Spawn Trigger
   - Trigger
-
+  - AttackBox
   layers:
   - Default
   - TransparentFX
