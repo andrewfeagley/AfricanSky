@@ -79,11 +79,25 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //Debug.Log($"{gameObject.name} collider was entered by {col.gameObject}");
+
         //when this player/enemy is entered by an attackbox (hit with weapon)
-        if (col.gameObject.CompareTag("AttackBox"))
+        if (col.gameObject.CompareTag("AttackBox") )
         {
-            Debug.Log("hit box");
-            SetAttackCommand(col);
+            
+
+            if (col.gameObject.transform.parent.CompareTag("Player") && gameObject.CompareTag("Enemy")) 
+            {
+                Debug.Log($"{col.gameObject.transform.parent.name}'s attackbox entered {gameObject.name}");
+                SetAttackCommand(col);
+            }
+
+            else if (col.gameObject.transform.parent.CompareTag("Enemy") && gameObject.CompareTag("Player"))
+            {
+                Debug.Log($"{col.gameObject.transform.parent.name}'s attackbox entered {gameObject.name}");
+                SetAttackCommand(col);
+            }
+
         }     
     }
 
@@ -109,7 +123,10 @@ public class CombatController : MonoBehaviour //like GameComponent
 
         if (command != null)
         {
-            command.Execute(col.gameObject.transform.parent.GetComponent<CombatComponent>()); //can we do this without a get component?
+            command.Execute(combatComponent); //can we do this without a get component?
+
+            //col.gameObject.transform.parent.GetComponent<CombatComponent>()
+
         }
     }
 
