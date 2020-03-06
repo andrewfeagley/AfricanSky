@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject attackBox1, attackBox2, attackBox3;
     public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;
     SpriteRenderer currentSprite;
-
+    Animator anim;
     //Position in which the Player is facing.
     private bool facingRight;
 

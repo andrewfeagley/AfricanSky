@@ -4,34 +4,12 @@ using UnityEngine;
 
 public class CameraStop : MonoBehaviour
 {
-    public Transform[] spawnPoints;
+
     public GameObject otherObject;
-    public GameObject[] enemy;
-    int randomSpawnPoint, randomEnemy;
-    public static bool spawnAllowed;
-    
+
     private void Start()
     {
-
-        
         otherObject = GameObject.Find("Camera Mid");
-        InvokeRepeating("SpawnEnemy",0f,2f);
-    }
-
-
-    private void Update()
-    {
-            if (CameraController.isFollowing == false)
-            {
-                spawnAllowed = true;
-            }
-            else if (CameraController.isFollowing == true)
-            {
-                spawnAllowed = false;
-                GameManager.enemiesKilled = 0;
-            }
-            Debug.Log(CameraController.isFollowing);
-            Debug.Log(GameManager.enemiesKilled);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,15 +23,6 @@ public class CameraStop : MonoBehaviour
         }
     }
 
-    void SpawnEnemy()
-    {
 
-        if (spawnAllowed)
-        {
-            randomSpawnPoint = Random.Range(0, spawnPoints.Length);
-            randomEnemy = Random.Range(0, enemy.Length);
-            Instantiate(enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
-        }
-    }
 
 }
