@@ -79,12 +79,20 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //when this attack box collider hits other body collider
+        //when this player/enemy is entered by an attackbox (hit with weapon)
+        if (col.gameObject.CompareTag("AttackBox"))
+        {
+            SetAttackCommand(col);
+        }     
+    }
 
+    void SetAttackCommand(Collider2D col)
+    {
         AnimatorStateInfo state = stateInfo.currentStateInfo; //get current state from player controller's animator
 
         command = null;
 
+        //call command to damage the player/enemy depending on attack
         if (state.IsName("Attack 1"))
         {
             command = new DamageCommand(attackDamage[0]);
