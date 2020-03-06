@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         currentSprite = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
-        stateInfo = GetComponent<EntityState>();
+        //stateInfo = GetComponent<EntityState>();
         anim = GetComponent<Animator>();
     }
 
@@ -104,15 +104,15 @@ public class PlayerController : MonoBehaviour
             anim.Play("Jump");
         }
 
-       // if (Input.GetButton("Fire3"))
+       //if (Input.GetButton("Fire3"))
         //{
-          //  lives = lives - 1;
+         //   lives = lives - 1;
           //  Debug.Log(lives);
-        //}
+       // }
 
-        if (lives <= 0) {
-            SceneManager.LoadScene("LoseScene");
-        }
+        //if (lives <= 0) {
+        //    SceneManager.LoadScene("LoseScene");
+      //  }
 
         //Plays movement animation
         anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);

@@ -40,12 +40,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4857764033542186392}
   - component: {fileID: 4857764033542186399}
+  - component: {fileID: 797041593731976899}
   - component: {fileID: 4857764033542186397}
   - component: {fileID: 4857764033542186398}
   - component: {fileID: 4857764033542186394}
   - component: {fileID: 4857764033542186393}
   m_Layer: 9
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,6 +121,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &797041593731976899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857764033542186396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f3d6a4a7874b64595aa9e8288dd50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4857764033542186397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a235fd3ec308741baffcc70222e3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateInfo: {fileID: 0}
   walkMoveSpeed: 3
   xMin: -0.72
   xMax: 104.75
