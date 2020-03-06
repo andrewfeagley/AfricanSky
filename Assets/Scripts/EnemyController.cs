@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    Animator anim;
     //used to check whether the Player is in sight of Enemy
     public bool inSight;
 
@@ -30,8 +31,9 @@ public class EnemyController : MonoBehaviour
 
     void Awake()
     {
-        //Searches for the object with the Player tag
-        player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();  
+    //Searches for the object with the Player tag
+    player = GameObject.FindGameObjectWithTag("Player");
         
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
@@ -79,7 +81,7 @@ targetDistance = Vector3.Distance (target.transform.position, gameObject.transfo
         if (other.gameObject == player)
         {
             inSight = true;
-            //Destroy(gameObject);
+            anim.Play("Walk");
         }
     }
     // deactivates as the Player exits the inSight trigger

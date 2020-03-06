@@ -37,6 +37,7 @@ public class CombatComponent : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log($"{this.gameObject.name} death");
+            Destroy(gameObject);
         }
     }
 

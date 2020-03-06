@@ -6614,10 +6614,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4857764033542186393, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4857764033542186396, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: xMin
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4857764033542186399, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
@@ -7037,6 +7047,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833665689627594432, guid: 389d32ec8368d1c428989286ad200826,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.005609396
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833665689627594432, guid: 389d32ec8368d1c428989286ad200826,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.035609394
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 389d32ec8368d1c428989286ad200826, type: 3}

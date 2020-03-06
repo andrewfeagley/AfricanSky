@@ -7,12 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(CombatComponent))]
 public class CombatController : MonoBehaviour //like GameComponent
 {
+    Animator anim;
     public CombatComponent combatComponent;
     private Rigidbody2D rb;
     private Collider2D collider;
 
     private EntityState stateInfo;
     Command command = null;
+    EnemyController enemyController;
 
     public float[] attackDamage = { 5, 10, 15 }; //punch, kick, super
 
@@ -25,14 +27,17 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     private void InitializeComponents()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         stateInfo = GetComponent<EntityState>();
         combatComponent = GetComponent<CombatComponent>();
+        enemyController = GetComponent<EnemyController>();
     }
 
     void SetCombatStats()
     {
+
         switch (gameObject.tag) //depending on what kind of entity this is
         {
             case "Player":
@@ -40,9 +45,36 @@ public class CombatController : MonoBehaviour //like GameComponent
                 break;
             case "Enemy":
                 //set damage/health
+                InvokeRepeating("RandomAttack", 1f, 5f);
                 break;
             //add additional cases for different types of enemies
         }
+    }
+
+    public void RandomAttack()
+    {
+        int randomAttack = Random.Range(0, 3);
+
+        //if (enemyController.inSight) //if player is in sight
+        {
+            switch (randomAttack)
+            {
+                case 0:
+                    anim.Play("Attack 1");
+                    break;
+                case 1:
+                    anim.Play("Attack 2");
+                    break;
+                case 2:
+                    anim.Play("Attack 3");
+                    break;
+                default:
+                    anim.Play("Idle");
+                    break;
+            }
+            Debug.Log($"{gameObject.name} attacked");
+        }
+       
     }
 
     void OnTriggerEnter2D(Collider2D col)
