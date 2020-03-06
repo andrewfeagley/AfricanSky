@@ -12,15 +12,13 @@ public class CombatComponent : MonoBehaviour
     public void DamagedBy(float damage)
     {
         health -= damage;
-        UpdateText();
     }
 
     public void HealedBy(float heal)
     {
         health += heal;
-        UpdateText();
     }
-
+   
     public void UpdateText()
     {
         //Debug.Log($"{this.gameObject.name} health: {health}");
@@ -29,6 +27,7 @@ public class CombatComponent : MonoBehaviour
 
     private void Update()
     {
+        UpdateText();
         CheckForDeath();
     }
 
