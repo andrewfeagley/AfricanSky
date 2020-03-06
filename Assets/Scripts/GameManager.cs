@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
         if (eArray.Length == 0) {
             CameraController.isFollowing = true;
+
         }
     }
 }
