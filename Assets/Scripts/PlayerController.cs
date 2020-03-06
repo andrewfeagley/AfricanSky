@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
+    private static int lives = 3;
 
     //Max X and Y movement constraints for Player
     public float xMin, xMax, yMin, yMax;
@@ -130,6 +131,16 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("Hurt");
 
+        }
+
+       // if (Input.GetButton("Fire3"))
+        //{
+          //  lives = lives - 1;
+          //  Debug.Log(lives);
+        //}
+
+        if (lives <= 0) {
+            SceneManager.LoadScene("LoseScene");
         }
 
         //Plays movement animation
