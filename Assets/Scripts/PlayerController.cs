@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
-    Animator anim;
-
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
