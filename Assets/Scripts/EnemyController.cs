@@ -29,6 +29,10 @@ public class EnemyController : MonoBehaviour
     public float frontTargetDistance;
     public float backTargetDistance;
 
+    public GameObject attackBox1, attackBox2, attackBox3;
+    public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;
+    SpriteRenderer currentSprite;
+
     void Awake()
     {
         anim = GetComponent<Animator>();  
@@ -37,13 +41,15 @@ public class EnemyController : MonoBehaviour
         
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
-
+        currentSprite = GetComponent<SpriteRenderer>();
         frontTarget = GameObject.Find("Enemy Front Target");
         backTarget = GameObject.Find("Enemy Back Target");
     }
 
     void FixedUpdate()
     {
+
+        UpdateAttackBoxes();
 
         //Finds and follows the players position while keeping the Enemy in X and Y constraints
         Vector2 direction = player.transform.position - transform.position;
@@ -74,6 +80,37 @@ public class EnemyController : MonoBehaviour
         targetDistance = Vector3.Distance(target.transform.position, gameObject.transform.position);
 
         
+    }
+
+    private void UpdateAttackBoxes()
+    {
+        //Checks to see if the attack frame is equal to the current in-game frame and runs code.
+        if (attack1Hitframe == currentSprite.sprite)
+        {
+            attackBox1.gameObject.SetActive(true);
+        }
+        else
+        {
+            attackBox1.gameObject.SetActive(false);
+        }
+
+        if (attack2Hitframe == currentSprite.sprite)
+        {
+            attackBox2.gameObject.SetActive(true);
+        }
+        else
+        {
+            attackBox2.gameObject.SetActive(false);
+        }
+
+        if (attack3Hitframe == currentSprite.sprite)
+        {
+            attackBox3.gameObject.SetActive(true);
+        }
+        else
+        {
+            attackBox3.gameObject.SetActive(false);
+        }
     }
 
     // Activates as the Player enters the inSight trigger

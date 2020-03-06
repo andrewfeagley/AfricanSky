@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 1389427849}
   m_Layer: 0
   m_Name: Attackbox1
-  m_TagString: Untagged
+  m_TagString: AttackBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6881,6 +6881,11 @@ PrefabInstance:
       propertyPath: xMin
       value: -8
       objectReference: {fileID: 0}
+    - target: {fileID: 4857764033542186398, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4857764033542186399, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -6890,6 +6895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4857764034466401276, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: AttackBox
       objectReference: {fileID: 0}
     - target: {fileID: 4857764034466401277, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
@@ -7339,6 +7349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.035609394
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833665689627594434, guid: 389d32ec8368d1c428989286ad200826,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 389d32ec8368d1c428989286ad200826, type: 3}

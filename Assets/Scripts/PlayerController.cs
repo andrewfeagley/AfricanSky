@@ -71,12 +71,37 @@ public class PlayerController : MonoBehaviour
             anim.Play("Attack 3");
         }
 
+        UpdateAttackBoxes();
+
+        //Plays jump animation
+        if (Input.GetButton("Jump"))
+        {
+            anim.Play("Jump");
+        }
+
+       //if (Input.GetButton("Fire3"))
+        //{
+         //   lives = lives - 1;
+          //  Debug.Log(lives);
+       // }
+
+        //if (lives <= 0) {
+        //    SceneManager.LoadScene("LoseScene");
+      //  }
+
+        //Plays movement animation
+        anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);
+    }
+
+    private void UpdateAttackBoxes()
+    {
         //Checks to see if the attack frame is equal to the current in-game frame and runs code.
         if (attack1Hitframe == currentSprite.sprite)
         {
             attackBox1.gameObject.SetActive(true);
         }
-        else {
+        else
+        {
             attackBox1.gameObject.SetActive(false);
         }
 
@@ -97,25 +122,6 @@ public class PlayerController : MonoBehaviour
         {
             attackBox3.gameObject.SetActive(false);
         }
-
-        //Plays jump animation
-        if (Input.GetButton("Jump"))
-        {
-            anim.Play("Jump");
-        }
-
-       //if (Input.GetButton("Fire3"))
-        //{
-         //   lives = lives - 1;
-          //  Debug.Log(lives);
-       // }
-
-        //if (lives <= 0) {
-        //    SceneManager.LoadScene("LoseScene");
-      //  }
-
-        //Plays movement animation
-        anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);
     }
 
 

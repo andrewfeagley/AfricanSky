@@ -79,6 +79,8 @@ public class CombatController : MonoBehaviour //like GameComponent
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //when this attack box collider hits other body collider
+
         AnimatorStateInfo state = stateInfo.currentStateInfo; //get current state from player controller's animator
 
         command = null;
