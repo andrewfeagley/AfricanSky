@@ -7,42 +7,37 @@ public class CombatComponent : MonoBehaviour
 {
     [SerializeField] Text healthText;
 
-    public float health = 100;
-    public float[] attackDamage = new float[3]; //punch, kick, super
-
-    public CombatComponent(float helath, float a1, float a2, float a3)
-    {
-        this.health = helath;
-        attackDamage[0] = a1;
-        attackDamage[1] = a2;
-        attackDamage[2] = a3;
-    }
+    private float health = 100;
 
     public void DamagedBy(float damage)
     {
         health -= damage;
+        UpdateText();
     }
 
     public void HealedBy(float heal)
     {
         health += heal;
-    }
-
-    private void Update()
-    {
         UpdateText();
     }
 
     public void UpdateText()
     {
-        if (gameObject.CompareTag("Player"))
+        //Debug.Log($"{this.gameObject.name} health: {health}");
+        healthText.text = $"{this.gameObject.name} Health: {health}";  //{this.gameObject.name}
+    }
+
+    private void Update()
+    {
+        CheckForDeath();
+    }
+
+    void CheckForDeath()
+    {
+        if(health <= 0)
         {
-            healthText.text = $"Player Health:{health}";
+            Debug.Log($"{this.gameObject.name} death");
         }
-        else if(gameObject.CompareTag("Enemy"))
-        {
-            healthText.text = $"Enemy Health:{health}";
-        }     
     }
 
 }

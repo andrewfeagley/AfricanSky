@@ -4828,7 +4828,7 @@ GameObject:
   - component: {fileID: 1217881239}
   m_Layer: 5
   m_Name: Player Health Text
-  m_TagString: Untagged
+  m_TagString: text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4883,7 +4883,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Player Health: na'
+  m_Text: 'Player Health: 100'
 --- !u!222 &1217881240
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6549,6 +6549,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 442854792828511424, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1217881239}
+    - target: {fileID: 442854792828511424, guid: 88da824b0440309418c7e3fb967d33ec,
+        type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4857764033542186392, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6948,6 +6958,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 726320406949806442, guid: 389d32ec8368d1c428989286ad200826,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 1852089777}
+    - target: {fileID: 726320406949806442, guid: 389d32ec8368d1c428989286ad200826,
+        type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826,
         type: 3}
       propertyPath: m_Name
@@ -8199,7 +8219,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enemy Health: na'
+  m_Text: 'Enemy Health: 100'
 --- !u!222 &1852089778
 CanvasRenderer:
   m_ObjectHideFlags: 0

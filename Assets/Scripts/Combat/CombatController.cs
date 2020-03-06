@@ -7,12 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(CombatComponent))]
 public class CombatController : MonoBehaviour //like GameComponent
 {
-    private CombatComponent combatComponent;
+    public CombatComponent combatComponent;
     private Rigidbody2D rb;
     private Collider2D collider;
 
     private EntityState stateInfo;
     Command command = null;
+
+    public float[] attackDamage = { 5, 10, 15 }; //punch, kick, super
 
     // Start is called before the first frame update
     void Awake()
@@ -34,45 +36,37 @@ public class CombatController : MonoBehaviour //like GameComponent
         switch (gameObject.tag) //depending on what kind of entity this is
         {
             case "Player":
-                combatComponent = new CombatComponent(100, 5, 10, 15);
+                //set damage/health
                 break;
             case "Enemy":
-                combatComponent = new CombatComponent(50, 1, 5, 10);
+                //set damage/health
                 break;
             //add additional cases for different types of enemies
         }
-
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("hit");
         AnimatorStateInfo state = stateInfo.currentStateInfo; //get current state from player controller's animator
-
-        CombatController eCombat = col.gameObject.GetComponent<CombatController>();
-        AnimatorStateInfo estate = eCombat.stateInfo.currentStateInfo; //dont want to call getcomponent in collision
 
         command = null;
 
-        if (estate.IsName("Attack 1"))
+        if (state.IsName("Attack 1"))
         {
-            command = new DamageCommand(eCombat.combatComponent.attackDamage[0]);
+            command = new DamageCommand(attackDamage[0]);
         }
-        else if (estate.IsName("Attack 2"))
+        else if (state.IsName("Attack 2"))
         {
-            command = new DamageCommand(eCombat.combatComponent.attackDamage[1]);
+            command = new DamageCommand(attackDamage[1]);
         }
-        else if (estate.IsName("Attack 3"))
+        else if (state.IsName("Attack 3"))
         {
-            command = new DamageCommand(eCombat.combatComponent.attackDamage[2]);
+            command = new DamageCommand(attackDamage[2]);
         }
-    }
 
-    private void Update()
-    {
         if (command != null)
         {
-            command.Execute(combatComponent);
+            command.Execute(col.gameObject.GetComponent<CombatComponent>()); //can we do this without a get component?
         }
     }
 
