@@ -25,8 +25,6 @@ public class Spawning : MonoBehaviour
             spawnAllowed = false;
             GameManager.enemiesKilled = 0;
         }
-        Debug.Log(CameraController.isFollowing);
-        Debug.Log(GameManager.enemiesKilled);
     }
     void SpawnEnemy()
     {

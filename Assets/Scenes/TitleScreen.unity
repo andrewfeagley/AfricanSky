@@ -1903,7 +1903,9 @@ MonoBehaviour:
 
     Attack 3 - C
 
-    Pause - Esc'
+    In-Game Menu - Q
+
+    Exit In-Game Menu - E'
 --- !u!222 &1410896365
 CanvasRenderer:
   m_ObjectHideFlags: 0

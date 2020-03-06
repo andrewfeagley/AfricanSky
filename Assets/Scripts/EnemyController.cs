@@ -7,7 +7,6 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     //used to check whether the Player is in sight of Enemy
     public bool inSight;
-    int enemiesDead = 1;
     public GameObject player;
     private Rigidbody2D rigidBody;
 
@@ -120,13 +119,6 @@ public class EnemyController : MonoBehaviour
         {
             inSight = true;
             anim.Play("Walk");
-
-           // enemiesDead = 0;
-            
-           // if (enemiesDead <=0) {
-          // SceneManager.LoadScene("WinScene");
-       //}
-
         }
     }
 
@@ -142,6 +134,7 @@ public class EnemyController : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
+        GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
     }
 
     //Allows for the Enemy to flip directions when needed.
