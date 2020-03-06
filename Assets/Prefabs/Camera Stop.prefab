@@ -116,7 +116,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c359bb596f9db489247d1ff6b3abbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   otherObject: {fileID: 0}
+  enemy:
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
+  - {fileID: 8833665689627594425, guid: 389d32ec8368d1c428989286ad200826, type: 3}
 --- !u!58 &7936534635901833864
 CircleCollider2D:
   m_ObjectHideFlags: 0

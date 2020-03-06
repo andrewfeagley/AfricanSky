@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraStop : MonoBehaviour
 {
+
     public GameObject otherObject;
 
     private void Start()
@@ -15,12 +16,13 @@ public class CameraStop : MonoBehaviour
     {
         //Checks to see if the otherObject has the specified tag and if so, deactivitates the object and turns isFollowing false.
         if (otherObject.tag == "CameraMidPoint")
-        {
+        { 
             otherObject = otherObject.transform.parent.gameObject;
             CameraController.isFollowing = false;
-            gameObject.SetActive(false);          
-        }    
+            gameObject.SetActive(false);
+        }
     }
 
-    
+
+
 }
