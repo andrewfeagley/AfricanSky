@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 4fc7915103a0a6e40ac45aab7b174fe2
   - enabled: 1
-    path: Assets/Scenes/PlayerMovement.unity
-    guid: 70a088857c93ef14b929e0323d2f2a43
-  - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: bbe935138e51de949b041a306efc6e32
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 94fc1ce036c2e974d939f449e4ec8b10
+  - enabled: 0
+    path: Assets/Scenes/PlayerMovement.unity
+    guid: 70a088857c93ef14b929e0323d2f2a43
   m_configObjects: {}

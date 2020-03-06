@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
             anim.Play("Attack 2");
         }
 
+        if (Input.GetButton("Fire3"))
+        {
+            anim.Play("Attack 3");
+        }
         UpdateAttackBoxes();
 
         //Plays jump animation
