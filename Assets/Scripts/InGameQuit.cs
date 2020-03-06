@@ -9,8 +9,8 @@ public class InGameQuit : MonoBehaviour
 
     private void Start()
     {
-        gameMenu = GameObject.Find("Canvas");
-        gameMenu.SetActive(true);
+        gameMenu = GameObject.Find("InGame");
+        gameMenu.SetActive(false);
     }
     void FixedUpdate()
     {

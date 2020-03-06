@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
-    private static int lives = 3;
+    public static int lives = 1;
 
     //Max X and Y movement constraints for Player
     public float xMin, xMax, yMin, yMax;
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-   
     private void FixedUpdate()
     {
         //-----------Movement--------------------------------------------
@@ -59,16 +58,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             anim.Play("Attack 1");
+           
         }
 
         if (Input.GetButton("Fire2"))
         {
             anim.Play("Attack 2");
-        }
-
-        if (Input.GetButton("Fire3"))
-        {
-            anim.Play("Attack 3");
         }
 
         UpdateAttackBoxes();
@@ -78,16 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("Jump");
         }
-
-       //if (Input.GetButton("Fire3"))
-        //{
-         //   lives = lives - 1;
-          //  Debug.Log(lives);
-       // }
-
-        //if (lives <= 0) {
-        //    SceneManager.LoadScene("LoseScene");
-      //  }
 
         //Plays movement animation
         anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);

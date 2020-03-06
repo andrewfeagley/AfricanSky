@@ -7,7 +7,7 @@ public class CombatComponent : MonoBehaviour
 {
     [SerializeField] Text healthText;
 
-    private float health = 100;
+    public static float health = 100;
 
     public void DamagedBy(float damage)
     {
@@ -36,7 +36,8 @@ public class CombatComponent : MonoBehaviour
         if(health <= 0)
         {
             Debug.Log($"{this.gameObject.name} death");
-            Destroy(gameObject);
+            PlayerController.lives = 0;
+            gameObject.SetActive(false);        
         }
     }
 
