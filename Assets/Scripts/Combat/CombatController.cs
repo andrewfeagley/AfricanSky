@@ -82,6 +82,7 @@ public class CombatController : MonoBehaviour //like GameComponent
         //when this player/enemy is entered by an attackbox (hit with weapon)
         if (col.gameObject.CompareTag("AttackBox"))
         {
+            Debug.Log("hit box");
             SetAttackCommand(col);
         }     
     }
@@ -108,7 +109,7 @@ public class CombatController : MonoBehaviour //like GameComponent
 
         if (command != null)
         {
-            command.Execute(col.gameObject.GetComponent<CombatComponent>()); //can we do this without a get component?
+            command.Execute(col.gameObject.transform.parent.GetComponent<CombatComponent>()); //can we do this without a get component?
         }
     }
 
