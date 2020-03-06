@@ -41,42 +41,42 @@ public class EntityState : MonoBehaviour
         //Checks to see what state the Player is in and then runs code inside the condition
         if (currentState == idleState)
         {
-            Debug.Log("Idle State");
+            // Debug.Log("Idle State");
         }
 
         if (currentState == walkState)
         {
-            Debug.Log("Walk State");
+            // Debug.Log("Walk State");
         }
 
         if (currentState == jumpState)
         {
-            Debug.Log("Jump State");
+            // Debug.Log("Jump State");
         }
 
         if (currentState == deathState)
         {
-            Debug.Log("Death State");
+          //  Debug.Log("Death State");
         }
 
         if (currentState == hurtState)
         {
-            Debug.Log("Hurt State");
+           // Debug.Log("Hurt State");
         }
 
         if (currentState == attackState1)
         {
-            Debug.Log("Attack State 1");
+            //  Debug.Log("Attack State 1");
         }
 
         if (currentState == attackState2)
         {
-            Debug.Log("Attack State 2");
+            //  Debug.Log("Attack State 2");
         }
 
         if (currentState == attackState3)
         {
-            Debug.Log("Attack State 3");
+            // Debug.Log("Attack State 3");
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Spawn Trigger
   - Trigger
+
   layers:
   - Default
   - TransparentFX
