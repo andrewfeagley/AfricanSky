@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public EntityState stateInfo;
     Animator anim;
-
+    public static int lives;
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
@@ -15,8 +15,6 @@ public class PlayerController : MonoBehaviour
     public float xMin, xMax, yMin, yMax;
 
     private Rigidbody2D rigidBody;
-
-    Animator anim;
     public GameObject attackBox1, attackBox2, attackBox3;
     public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;
     SpriteRenderer currentSprite;

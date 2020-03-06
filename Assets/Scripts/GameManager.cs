@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] eArray;
+    public static int enemiesKilled;
     void Start()
     {
         
@@ -14,9 +14,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        eArray = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (eArray.Length == 0) {
+        if (enemiesKilled == 6 && CameraController.isFollowing == false) {
             CameraController.isFollowing = true;
         }
     }

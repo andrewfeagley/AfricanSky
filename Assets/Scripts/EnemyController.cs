@@ -94,6 +94,11 @@ targetDistance = Vector3.Distance (target.transform.position, gameObject.transfo
         }
     }
 
+    private void OnDestroy()
+    {
+        GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
+    }
+
     //Allows for the Enemy to flip directions when needed.
     private void Flip()
     {
