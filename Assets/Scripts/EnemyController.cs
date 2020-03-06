@@ -101,6 +101,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
+    }
+
     //Allows for the Enemy to flip directions when needed.
     private void Flip()
     {
