@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     {
         if (enemiesKilled == 6 && CameraController.isFollowing == false) {
             CameraController.isFollowing = true;
+
         }
     }
 }

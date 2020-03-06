@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
-    public EntityState stateInfo;
-    Animator anim;
-    public static int lives;
     //Speed in which the Player moves.
     public float walkMoveSpeed;
     private float movementSpeed;
+    private static int lives = 3;
 
     //Max X and Y movement constraints for Player
     public float xMin, xMax, yMin, yMax;
@@ -27,7 +25,7 @@ public class PlayerController : MonoBehaviour
         currentSprite = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
-        stateInfo = GetComponent<EntityState>();
+        //stateInfo = GetComponent<EntityState>();
         anim = GetComponent<Animator>();
     }
 
@@ -102,6 +100,16 @@ public class PlayerController : MonoBehaviour
         {
             anim.Play("Jump");
         }
+
+       //if (Input.GetButton("Fire3"))
+        //{
+         //   lives = lives - 1;
+          //  Debug.Log(lives);
+       // }
+
+        //if (lives <= 0) {
+        //    SceneManager.LoadScene("LoseScene");
+      //  }
 
         //Plays movement animation
         anim.SetFloat("moveSpeed", rigidBody.velocity.sqrMagnitude);

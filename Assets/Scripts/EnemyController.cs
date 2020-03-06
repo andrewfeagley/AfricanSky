@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EnemyController : MonoBehaviour
 {
     public EntityState stateInfo;
 
     //used to check whether the Player is in sight of Enemy
     public bool inSight;
-
+    int enemiesDead = 1;
     public GameObject player;
     private Rigidbody2D rigidBody;
 
@@ -45,7 +45,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
         //Finds and follows the players position while keeping the Enemy in X and Y constraints
         Vector2 direction = player.transform.position - transform.position;
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
@@ -72,7 +72,8 @@ public class EnemyController : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, backTarget.transform.position, movementSpeed * Time.deltaTime);
         }
 
-targetDistance = Vector3.Distance (target.transform.position, gameObject.transform.position);
+        targetDistance = Vector3.Distance(target.transform.position, gameObject.transform.position);
+
         
     }
 
@@ -83,8 +84,14 @@ targetDistance = Vector3.Distance (target.transform.position, gameObject.transfo
         {
             inSight = true;
             Destroy(gameObject);
+           // enemiesDead = 0;
+            
+           // if (enemiesDead <=0) {
+          // SceneManager.LoadScene("WinScene");
+       //}
         }
     }
+
     // deactivates as the Player exits the inSight trigger
     private void OnTriggerExit2D(Collider2D other)
     {
