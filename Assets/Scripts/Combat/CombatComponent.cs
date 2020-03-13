@@ -12,6 +12,7 @@ public class CombatComponent : MonoBehaviour
     public void DamagedBy(float damage)
     {
         health -= damage;
+        //Debug.Log($"{gameObject.name} health: {health}");
     }
 
     public void HealedBy(float heal)
@@ -39,6 +40,7 @@ public class CombatComponent : MonoBehaviour
             PlayerController.lives = 0;
             gameObject.SetActive(false);        
         }
+
     }
 
 }
