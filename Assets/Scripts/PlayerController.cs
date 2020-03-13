@@ -8,9 +8,7 @@ public class PlayerController : MonoBehaviour
     public float walkMoveSpeed;
     private float movementSpeed;
     public static int lives = 1;
-
-    //Max X and Y movement constraints for Player
-    public float xMin, xMax, yMin, yMax;
+    private Vector3 screenBounds;
 
     private Rigidbody2D rigidBody;
 
@@ -27,8 +25,6 @@ public class PlayerController : MonoBehaviour
         currentSprite = GetComponent<SpriteRenderer>();
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
-
-        //stateInfo = GetComponent<EntityState>();
         anim = GetComponent<Animator>();
     }
 
@@ -42,7 +38,6 @@ public class PlayerController : MonoBehaviour
         //Takes the movement of the Player and constraints and implements them into the game.
         Vector2 movement = new Vector2(moveHorizontal,moveVertical);
         rigidBody.velocity = movement * movementSpeed;
-        rigidBody.position = new Vector2(Mathf.Clamp(rigidBody.position.x, xMin, xMax), Mathf.Clamp(rigidBody.position.y, yMin, yMax));
 
         // Flips the direction the Player is looking
         if (moveHorizontal < 0 && !facingRight) {
