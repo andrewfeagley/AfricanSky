@@ -13,13 +13,15 @@ public class Player : MonoBehaviour
     public LayerMask enemyLayers;
     [SerializeField]
     public float walkSpeed;
-    int lives;
-    int health;
+    int lives = 3;
+    public int health;
 
     [HideInInspector]
     public bool isFlipped = false;
     [HideInInspector]
     public bool isMoving = false;
+    [HideInInspector]
+    public bool isDead = false;
     [HideInInspector]
     public float moveHorizontal;
     [HideInInspector]
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        playerTransform = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -38,6 +42,7 @@ public class Player : MonoBehaviour
     {
         HandleInput();
         CheckForMovement();
+        CheckForDeath();
     }
 
     void HandleInput()
@@ -93,5 +98,17 @@ public class Player : MonoBehaviour
         Vector2 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void CheckForDeath()
+    {
+        if(health <= 0)
+        {
+            health = 0;
+            isDead = true;
+        }
+        else if (health > 0)
+            isDead = false;
+        animator.SetBool("IsDead", isDead);
     }
 }

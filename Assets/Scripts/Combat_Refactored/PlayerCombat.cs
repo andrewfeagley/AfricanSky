@@ -14,6 +14,11 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
+    void DealDamage(int damageAmount)
+    {
+
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
