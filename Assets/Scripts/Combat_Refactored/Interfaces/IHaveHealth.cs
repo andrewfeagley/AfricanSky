@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IDamageable
+public interface IHaveHealth
 {
-    void Hit(int DamageAmount);
+    int Health { get; set; }
 }

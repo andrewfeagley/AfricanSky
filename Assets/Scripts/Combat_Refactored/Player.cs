@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IHaveHealth
 {
     public Transform playerTransform;
     public Animator animator;
@@ -14,8 +14,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     public float walkSpeed;
     int lives = 3;
-    public int health;
+    [SerializeField]
+    private int currentHealth;
+    [SerializeField]
+    private int maxHealth;
 
+    #region Animator Variables
     [HideInInspector]
     public bool isFlipped = false;
     [HideInInspector]
@@ -30,12 +34,16 @@ public class Player : MonoBehaviour
     public bool isJumpedPressed;
     [HideInInspector]
     public bool isAttackPressed;
+    #endregion
+
+    public int Health { get => currentHealth; set => currentHealth = value; }
 
     private void Start()
     {
         playerTransform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        Health = maxHealth;
     }
 
     private void Update()
@@ -102,13 +110,14 @@ public class Player : MonoBehaviour
 
     void CheckForDeath()
     {
-        if(health <= 0)
+        if(currentHealth <= 0)
         {
-            health = 0;
+            currentHealth = 0;
             isDead = true;
         }
-        else if (health > 0)
+        else if (currentHealth > 0)
             isDead = false;
         animator.SetBool("IsDead", isDead);
     }
+
 }

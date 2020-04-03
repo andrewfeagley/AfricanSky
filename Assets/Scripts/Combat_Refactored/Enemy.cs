@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IHaveHealth
 {
     public Transform playerTransform;
     public Animator animator;
@@ -13,7 +13,10 @@ public class Enemy : MonoBehaviour
     public LayerMask playerLayers;
     [SerializeField]
     public float walkSpeed;
-    int health;
+    [SerializeField]
+    private int currentHealth;
+    [SerializeField]
+    private int maxHealth;
 
     [HideInInspector]
     public bool isFlipped = false;
@@ -24,12 +27,14 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public bool isAttackPressed;
 
+    public int Health { get => currentHealth; set => currentHealth = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        Health = maxHealth;
     }
 
     // Update is called once per frame
@@ -39,6 +44,14 @@ public class Enemy : MonoBehaviour
         //ChasePlayer();
         LookAtPlayer();
     }
+
+    void CheckForDeath()
+    {
+        if (currentHealth <= 0)
+            animator.SetBool(0, true);
+    }
+
+
     private Vector2 velocity = Vector2.zero;
     void ChasePlayer()
     {
@@ -84,4 +97,5 @@ public class Enemy : MonoBehaviour
             isFlipped = false;
         }
     }
+
 }
