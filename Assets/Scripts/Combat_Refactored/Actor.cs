@@ -2,12 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
 {
-    public int health;
-
-    public virtual void TakeDamage(int amount)
-    {
-        health -= amount;
-    }
 }

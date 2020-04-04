@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Enemy : MonoBehaviour, IHaveHealth
+public class Enemy : Actor, IHaveHealth
 {
     public Transform playerTransform;
     public Animator animator;
