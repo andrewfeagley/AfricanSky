@@ -63,12 +63,6 @@ public class Enemy : Actor, IHaveHealth
     }
 
 
-    private Vector2 velocity = Vector2.zero;
-    void ChasePlayer()
-    {
-        rigidbody2D.MovePosition(Vector2.MoveTowards(transform.position, playerTransform.position, walkSpeed * Time.deltaTime));
-    }
-
     public void LookInDirectionMoving()
     {
         //Checks for input and sets the player to look that way

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -68,7 +69,15 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     void Respawn()
     {
-
+        if(Lives > 0)
+        {
+            Health = maxHealth;
+            animator.ResetTrigger("IsDead");
+        }
+        else //Game over stuff goes here, should probably be moved to a game manager and use an event to tell it the player died
+        {
+            SceneManager.LoadScene("TitleScreen");
+        }
     }
 
     void KeepHealthFromExceedingMax()

@@ -31,7 +31,7 @@ public class HurtBox : MonoBehaviour, IDamageable
         if(healthAmount.Health <= 0 )
         {
             healthAmount.Health = 0;
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
             return;
         }
         //reduces parent object's health by the amount variable
