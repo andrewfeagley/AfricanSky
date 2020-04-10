@@ -1,23 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : Actor, IHaveHealth
+public class Player : Actor, IHaveHealth, IHaveLives
 {
     public Transform playerTransform;
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
-    public LayerMask enemyLayers;
     [SerializeField]
     public float walkSpeed;
-    int lives = 3;
     [SerializeField]
-    private int currentHealth;
+    int currentLives;
     [SerializeField]
-    private int maxHealth;
+    int startingLives; //the lives the player starts with
+    [SerializeField]
+    private int currentHealth; //the health the player starts with
+    [SerializeField]
+    public int maxHealth; //the max health the player can have, starts out with this
+
 
     #region Animator Variables
     [HideInInspector]
@@ -36,7 +40,14 @@ public class Player : Actor, IHaveHealth
     public bool isAttackPressed;
     #endregion
 
-    public int Health { get => currentHealth; set => currentHealth = value; }
+    public int Health 
+    { 
+        get => currentHealth;
+        set => currentHealth = value;
+    }
+
+
+    public int Lives { get => currentLives; set => currentLives = value; }
 
     private void Start()
     {
@@ -44,6 +55,7 @@ public class Player : Actor, IHaveHealth
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
+        Lives = startingLives;
     }
 
     private void Update()
@@ -51,6 +63,18 @@ public class Player : Actor, IHaveHealth
         HandleInput();
         CheckForMovement();
         CheckForDeath();
+        KeepHealthFromExceedingMax();
+    }
+
+    void Respawn()
+    {
+
+    }
+
+    void KeepHealthFromExceedingMax()
+    {
+        if (currentHealth >= maxHealth)
+            currentHealth = maxHealth;
     }
 
     void HandleInput()
@@ -90,12 +114,10 @@ public class Player : Actor, IHaveHealth
         //Checks for input and sets the player to look that way
         if(rigidbody2D.velocity.x > 0 && isFlipped)
         {
-            //spriteRenderer.flipX = false;
             Flip();
         }
         else if(moveHorizontal < 0 && !isFlipped)
         {
-            //spriteRenderer.flipX = true;
             Flip();
         }
     }
@@ -119,5 +141,4 @@ public class Player : Actor, IHaveHealth
             isDead = false;
         animator.SetBool("IsDead", isDead);
     }
-
 }

@@ -10,7 +10,8 @@ public class Enemy : Actor, IHaveHealth
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
-    public LayerMask playerLayers;
+
+    public float attackRange;
     [SerializeField]
     public float walkSpeed;
     [SerializeField]
@@ -26,6 +27,8 @@ public class Enemy : Actor, IHaveHealth
     public bool isJumpedPressed;
     [HideInInspector]
     public bool isAttackPressed;
+    [HideInInspector]
+    public bool isDead = false;
 
     public int Health { get => currentHealth; set => currentHealth = value; }
 
@@ -42,20 +45,28 @@ public class Enemy : Actor, IHaveHealth
     {
         //LookInDirectionMoving();
         //ChasePlayer();
-        LookAtPlayer();
+        CheckForDeath();
+        if(!isDead)
+            LookAtPlayer();
     }
 
     void CheckForDeath()
     {
         if (currentHealth <= 0)
-            animator.SetBool(0, true);
+        {
+            currentHealth = 0;
+            isDead = true;
+        }
+        else if (currentHealth > 0)
+            isDead = false;
+        animator.SetBool("isDead", isDead);
     }
 
 
     private Vector2 velocity = Vector2.zero;
     void ChasePlayer()
     {
-        rigidbody2D.velocity = Vector2.SmoothDamp(rigidbody2D.velocity, playerTransform.position, ref velocity, walkSpeed * Time.deltaTime);
+        rigidbody2D.MovePosition(Vector2.MoveTowards(transform.position, playerTransform.position, walkSpeed * Time.deltaTime));
     }
 
     public void LookInDirectionMoving()
@@ -81,7 +92,7 @@ public class Enemy : Actor, IHaveHealth
         transform.localScale = theScale;
     }
 
-    void LookAtPlayer()
+    public void LookAtPlayer()
     {
         Vector2 flipped = transform.localScale;
         if(transform.position.x > playerTransform.position.x && !isFlipped)
@@ -97,5 +108,4 @@ public class Enemy : Actor, IHaveHealth
             isFlipped = false;
         }
     }
-
 }

@@ -22,10 +22,10 @@ TagManager:
   - 
   - LevelMesh
   - Player
-  - PlayerBoundaries
+  - HitBoxes
+  - HurtBoxes
   - 
-  - PlayerHitBoxes
-  - PlayerHurtBoxes
+  - Pickups
   - 
   - 
   - 
@@ -33,8 +33,8 @@ TagManager:
   - 
   - 
   - Enemy
-  - EnemyHitBoxes
-  - EnemyHurtBoxes
+  - 
+  - 
   - 
   - 
   - 
