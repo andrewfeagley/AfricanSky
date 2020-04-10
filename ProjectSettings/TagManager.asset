@@ -10,6 +10,7 @@ TagManager:
   - Spawn Trigger
   - Trigger
   - AttackBox
+  - FallTrigger
   layers:
   - Default
   - TransparentFX
@@ -21,17 +22,17 @@ TagManager:
   - 
   - LevelMesh
   - Player
-  - PlayerBoundaries
+  - HitBoxes
+  - HurtBoxes
+  - 
+  - Pickups
   - 
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
