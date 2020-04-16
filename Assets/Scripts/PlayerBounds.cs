@@ -2,14 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraBoundary : MonoBehaviour
+public class PlayerBounds : MonoBehaviour
 {
-    private Vector3 screenBounds;
     public float yMin, yMax;
-    void Start()
-    {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-    }
 
     // Update is called once per frame
     void LateUpdate()

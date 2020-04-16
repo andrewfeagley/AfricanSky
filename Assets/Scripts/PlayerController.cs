@@ -8,10 +8,8 @@ public class PlayerController : MonoBehaviour
     public float walkMoveSpeed;
     private float movementSpeed;
     public static int lives = 1;
-    private Vector3 screenBounds;
 
     private Rigidbody2D rigidBody;
-
 
     public GameObject attackBox1, attackBox2, attackBox3;
     public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;

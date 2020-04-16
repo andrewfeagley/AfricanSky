@@ -10,6 +10,8 @@ TagManager:
   - Spawn Trigger
   - Trigger
   - AttackBox
+  - text
+  - GO
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraStop : MonoBehaviour
 {
 
-    public GameObject otherObject;
+    private GameObject otherObject;
 
     private void Start()
     {
@@ -20,6 +20,7 @@ public class CameraStop : MonoBehaviour
             otherObject = otherObject.transform.parent.gameObject;
             CameraController.isFollowing = false;
             gameObject.SetActive(false);
+            ETutorialController.gosign.SetActive(false);
         }
     }
 
