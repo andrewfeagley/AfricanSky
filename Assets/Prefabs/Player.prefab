@@ -45,10 +45,10 @@ GameObject:
   - component: {fileID: 4857764033542186398}
   - component: {fileID: 4857764033542186394}
   - component: {fileID: 4857764033542186393}
-  - component: {fileID: 4016132162754454669}
   - component: {fileID: -7039122850464435449}
   - component: {fileID: 1506520447142632394}
   - component: {fileID: 442854792828511424}
+  - component: {fileID: 1490581011}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a235fd3ec308741baffcc70222e3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkMoveSpeed: 3
+  walkMoveSpeed: 4
   attackBox1: {fileID: 4857764034466401276}
   attackBox2: {fileID: 4857764034616288307}
   attackBox3: {fileID: 4857764034908209942}
@@ -225,18 +225,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21490404, y: 0.30086023}
   m_EdgeRadius: 0
---- !u!114 &4016132162754454669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857764033542186396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f571ac228a93fd3469d20fca8ea1b954, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-7039122850464435449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +267,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
+--- !u!114 &1490581011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857764033542186396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f523200164bb76041b1fecabda223941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yMin: 0
+  yMax: 3.62
 --- !u!1 &4857764034065871831
 GameObject:
   m_ObjectHideFlags: 0

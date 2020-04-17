@@ -2221,8 +2221,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -209.4, y: 253.02}
-  m_SizeDelta: {x: -418.8, y: -509.8}
+  m_AnchoredPosition: {x: -216.19998, y: 235.64998}
+  m_SizeDelta: {x: -432.4, y: -471.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278017893
 MonoBehaviour:
@@ -3078,7 +3078,7 @@ GameObject:
   - component: {fileID: 543404714}
   - component: {fileID: 543404713}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Lives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3101,7 +3101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -362, y: 203}
+  m_AnchoredPosition: {x: -407.21, y: 158.84}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543404713
@@ -5684,7 +5684,7 @@ GameObject:
   - component: {fileID: 1226810784}
   - component: {fileID: 1226810783}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7561,20 +7561,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1502953851}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1490581011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490581004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f523200164bb76041b1fecabda223941, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yMin: 0
-  yMax: 3.62
 --- !u!1001 &1502953851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7582,21 +7568,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 442854792828511424, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4016132162754454669, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: Health
-      value: 
-      objectReference: {fileID: 771414381}
-    - target: {fileID: 4016132162754454669, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: Fill
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4857764033542186392, guid: 88da824b0440309418c7e3fb967d33ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7657,28 +7628,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: xMin
-      value: -8.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: xMax
-      value: 66
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: yMax
-      value: 3.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: walkMoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4016132162754454669, guid: 88da824b0440309418c7e3fb967d33ec, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88da824b0440309418c7e3fb967d33ec, type: 3}
 --- !u!1 &1506065851
 GameObject:
