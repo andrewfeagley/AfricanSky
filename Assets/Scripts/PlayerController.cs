@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
     {
         facingRight = !facingRight;
         Vector2 theScale = transform.localScale;
-        theScale.x *= -1;
+        theScale.x *= 1;
         transform.localScale = theScale;
     }    
 }
