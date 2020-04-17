@@ -32,6 +32,7 @@ public class ETutorialController : MonoBehaviour
     public GameObject attackBox1, attackBox2, attackBox3;
     public Sprite attack1Hitframe, attack2Hitframe, attack3Hitframe;
     SpriteRenderer currentSprite;
+    private GameObject Manage;
 
     void Awake()
     {
@@ -45,6 +46,8 @@ public class ETutorialController : MonoBehaviour
         currentSprite = GetComponent<SpriteRenderer>();
         frontTarget = GameObject.Find("Enemy Front Target");
         backTarget = GameObject.Find("Enemy Back Target");
+        Manage = GameObject.Find("GameManager");
+        Manage.SetActive(false);
     }
 
     void FixedUpdate()
@@ -118,6 +121,7 @@ public class ETutorialController : MonoBehaviour
     {
         GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
         GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
+        Manage.SetActive(true);
     }
 
     //Allows for the Enemy to flip directions when needed.

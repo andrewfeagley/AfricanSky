@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public static int enemiesKilled;
-
     private void FixedUpdate()
     {
+        if (GameManager.enemiesKilled == 1 && CameraController.isFollowing == false)
+        {
             CameraController.isFollowing = true;
+            ETutorialController.gosign.SetActive(true);
+            GameManager.enemiesKilled = 0;
+        }
     }
 }

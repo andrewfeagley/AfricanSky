@@ -6,8 +6,9 @@ public class CameraBounds : MonoBehaviour
 {
     void LateUpdate()
     {
+        
         Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, Camera.main.transform.position.x - 4f,50f);
+       viewPos.x = Mathf.Clamp(viewPos.x, Camera.main.transform.position.x - 16f,100f);
         transform.position = viewPos;
     }
 }

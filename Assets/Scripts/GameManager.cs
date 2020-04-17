@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (enemiesKilled == 1 && CameraController.isFollowing == false) {
+        if (enemiesKilled == 6 && CameraController.isFollowing == false) {
             CameraController.isFollowing = true;
             ETutorialController.gosign.SetActive(true);
+            enemiesKilled = 0;
         }
 
         if (totalEnemiesKilled >= 18) {
