@@ -23,6 +23,13 @@ public class HurtBox : MonoBehaviour, IDamageable
         healthAmount = GetComponentInParent<IHaveHealth>();
     }
 
+    private void Start()
+    {
+        if (parent == null)
+            parent = GetComponentInParent<Actor>();
+        Debug.Log("The parent is: " + parent.name);
+    }
+
     /// <summary>
     /// This function is called when the hurtbox collides with a hitbox, it reduces the health of the object the hurtbox belongs to by the value of the int amount
     /// </summary>
