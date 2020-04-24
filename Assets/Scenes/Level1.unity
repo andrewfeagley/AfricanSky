@@ -6272,26 +6272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186396, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186397, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: walkMoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186398, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4857764033542186398, guid: 88da824b0440309418c7e3fb967d33ec,
-        type: 3}
-      propertyPath: m_UseAutoMass
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88da824b0440309418c7e3fb967d33ec, type: 3}
 --- !u!1 &1520094885 stripped

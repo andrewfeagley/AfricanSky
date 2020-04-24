@@ -55,7 +55,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4857764033542186392
 Transform:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68a235fd3ec308741baffcc70222e3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkMoveSpeed: 4
+  walkMoveSpeed: 10
   attackBox1: {fileID: 4857764034466401276}
   attackBox2: {fileID: 4857764034616288307}
   attackBox3: {fileID: 4857764034908209942}
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2.9241207
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

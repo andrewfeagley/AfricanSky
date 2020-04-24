@@ -25,7 +25,7 @@ public class HurtBox : MonoBehaviour, IDamageable
     /// This function is called when the hurtbox collides with a hitbox, it reduces the health of the object the hurtbox belongs to by the value of the int amount
     /// </summary>
     /// <param name="amount">value to reduce health by when function is called, the amount belongs to the hitbox that collides with the hurtbox</param>
-    public void Hit(int amount)
+    public void Hit(float amount)
     {
         //this runs to make sure Health doesn't fall into the negatives
         if(healthAmount.Health <= 0 )
