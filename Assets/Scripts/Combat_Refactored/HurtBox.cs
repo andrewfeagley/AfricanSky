@@ -10,6 +10,8 @@ public class HurtBox : MonoBehaviour, IDamageable
     public Actor attacker, parent;
     IHaveHealth healthAmount;
 
+    public event EventHandler OnHealthChanged;
+
     private void Awake()
     {
         this.gameObject.SetActive(true);
@@ -31,11 +33,12 @@ public class HurtBox : MonoBehaviour, IDamageable
         if(healthAmount.Health <= 0 )
         {
             healthAmount.Health = 0;
-            //this.gameObject.SetActive(false);
             return;
         }
         //reduces parent object's health by the amount variable
         healthAmount.Health -= amount;
+        if (OnHealthChanged != null)
+            OnHealthChanged(this, EventArgs.Empty); //triggers event for the ui to see
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -51,8 +54,14 @@ public class HurtBox : MonoBehaviour, IDamageable
         //if they are on the same layer no damage is taken
         if (attacker.gameObject.layer != parent.gameObject.layer)
         {
-            Hit(attackerHitBox.amount);
-            Debug.Log($"Hurtbox: " + parent.name + " was hit for: " + attackerHitBox.amount + "damage.");
+            //Hit(attackerHitBox.amount);
+            parent.TakeDamage(attackerHitBox.amount);
+            //Debug.Log($"Hurtbox: " + parent.name + " was hit for: " + attackerHitBox.amount + "damage.");
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        attacker = null;
     }
 }

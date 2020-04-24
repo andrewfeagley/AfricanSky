@@ -291,7 +291,7 @@ MonoBehaviour:
   animator: {fileID: 2004521795196989899}
   rigidbody2D: {fileID: 2004521795196989903}
   spriteRenderer: {fileID: 2004521795196989902}
-  walkSpeed: 0.5
+  walkSpeed: 1
   currentLives: 0
   startingLives: 1
   currentHealth: 0
