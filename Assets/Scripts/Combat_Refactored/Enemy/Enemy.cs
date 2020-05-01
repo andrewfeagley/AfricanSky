@@ -16,9 +16,9 @@ public class Enemy : Actor, IHaveHealth
     [SerializeField]
     public float walkSpeed;
     [SerializeField]
-    private int currentHealth;
+    private float currentHealth;
     [SerializeField]
-    private int maxHealth;
+    private float maxHealth;
 
     [HideInInspector]
     public bool isFlipped = false;
@@ -31,7 +31,7 @@ public class Enemy : Actor, IHaveHealth
     [HideInInspector]
     public bool isDead = false;
 
-    public int Health { get => currentHealth; set => currentHealth = value; }
+    public float Health { get => currentHealth; set => currentHealth = value; }
 
     // Start is called before the first frame update
     void Start()

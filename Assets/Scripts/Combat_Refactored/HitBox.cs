@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class HitBox : MonoBehaviour
 {
-    public int amount;
+    public float amount;
     public BoxCollider2D hitBoxCollider;
 
     private void Awake()

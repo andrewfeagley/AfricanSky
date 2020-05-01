@@ -10,6 +10,7 @@ TagManager:
   - Spawn Trigger
   - Trigger
   - AttackBox
+  - GO
   layers:
   - Default
   - TransparentFX
@@ -80,15 +81,18 @@ TagManager:
   - name: 1
     uniqueID: 355383211
     locked: 0
-  - name: Item 1
+  - name: 0
     uniqueID: 3389608895
+    locked: 0
+  - name: -1
+    uniqueID: 1831881573
     locked: 0
   - name: Player
     uniqueID: 4256076623
     locked: 0
-  - name: Items 2
+  - name: Items 1
     uniqueID: 1897652041
     locked: 0
-  - name: Items 3
+  - name: Items 2
     uniqueID: 1141746541
     locked: 0
