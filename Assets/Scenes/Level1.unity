@@ -1238,7 +1238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &266488680
 GameObject:
@@ -1601,13 +1601,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348444790}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.84, y: 0.7870872, z: 406.1552}
+  m_LocalPosition: {x: 6.7917786, y: 2.1919627, z: -1}
   m_LocalScale: {x: 6.9225264, y: 6.9225264, z: 6.9225264}
   m_Children:
   - {fileID: 2109021837}
   - {fileID: 243802623}
-  m_Father: {fileID: 1978584767}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &348444792
 MonoBehaviour:
@@ -1797,7 +1797,7 @@ SpriteRenderer:
   m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 523e8eadc9d14844e9545ec07229c5e7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -2832,7 +2832,7 @@ Transform:
   - {fileID: 1858152139}
   - {fileID: 588860331}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653015325
 GameObject:
@@ -2911,7 +2911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &665741923
 GameObject:
@@ -3347,7 +3347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771414379
 GameObject:
@@ -6150,7 +6150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1520094885 stripped
 GameObject:
@@ -8378,9 +8378,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6330198379784089843}
-  - {fileID: 348444791}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1978584768
 MonoBehaviour:
