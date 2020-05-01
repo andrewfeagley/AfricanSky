@@ -143,6 +143,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         transform.localScale = theScale;
     }
 
+    #region Lives Events and Logic
     //This event should be observed by the lives counter in the UI
     public event EventHandler OnLivesChanged;
     void CheckForDeath()
@@ -159,6 +160,14 @@ public class Player : Actor, IHaveHealth, IHaveLives
         animator.SetBool("IsDead", isDead);
     }
 
+    public void LivesIncreased(int amount)
+    {
+        Lives += amount;
+        OnLivesChanged.Invoke(this, EventArgs.Empty);
+    }
+    #endregion
+
+    #region Health Events and Logic
     //This event should be observed by the health bar system
     public event EventHandler OnHealthChanged;
     /// <summary>
@@ -177,6 +186,15 @@ public class Player : Actor, IHaveHealth, IHaveLives
         Health -= amount;
         OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
 
-        Debug.Log($"The {name} was hit for {amount} damage");
+        Debug.Log($"The {name} was hit for {amount} damage.");
     }
+
+    public void IncreaseHealth(float amount)
+    {
+        Health += amount;
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+
+        Debug.Log($"The {name} recovered {amount} health.");
+    }
+    #endregion
 }

@@ -23,7 +23,7 @@ public class HealthPickup : Pickup
 
     public override void PickUp(int amountToRestore)
     {
-        player.Health += amountToRestore;
+        player.IncreaseHealth(amountToRestore);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
