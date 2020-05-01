@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
+/// <summary>
+/// This should be attached to a child of the Actor that it belongs to.
+/// </summary>
 public class HurtBox : MonoBehaviour, IDamageable
 {
     [SerializeField]
@@ -15,7 +19,7 @@ public class HurtBox : MonoBehaviour, IDamageable
     private void Awake()
     {
         this.gameObject.SetActive(true);
-
+        boxCollider2D.isTrigger = true;
         parent = GetComponentInParent<Actor>();
         Debug.Log("The parent is: " + parent.name);
 
