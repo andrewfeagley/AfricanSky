@@ -17,6 +17,7 @@ public class PlayerJumpBehaviour : StateMachineBehaviour
     {
         //animator.SetBool("Jump", false);
         animator.SetBool("Punch", false);
+        player.rigidbody2D.velocity = Vector2.zero;
 
     }
 

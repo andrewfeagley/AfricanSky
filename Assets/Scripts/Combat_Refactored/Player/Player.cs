@@ -12,6 +12,10 @@ public class Player : Actor, IHaveHealth, IHaveLives
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
+
+    [Tooltip("This should be at the character's feet, it collides with the environment.")]
+    public BoxCollider2D environmentCollider;
+
     [SerializeField]
     public float walkSpeed;
     [SerializeField]
