@@ -20,7 +20,9 @@ public class EnemyWalkBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy.LookAtPlayer();
+    TODO:
+            //Fix enemy 
+        //enemy.LookAtPlayer();
 
         Vector2 target = new Vector2(playerTransform.position.x, playerTransform.position.y);
         Vector2 newPosition = Vector2.MoveTowards(rigidbody2D.position, target, enemy.walkSpeed * Time.fixedDeltaTime);
