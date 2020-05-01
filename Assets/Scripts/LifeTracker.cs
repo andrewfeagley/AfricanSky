@@ -23,6 +23,6 @@ public class LifeTracker : MonoBehaviour
 
     private void HaveLives_OnLivesChanged(object sender, System.EventArgs e)
     {
-        textField.text = haveLives.Lives.ToString();
+        textField.text = "x" + haveLives.Lives.ToString();
     }
 }

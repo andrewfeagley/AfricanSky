@@ -152,6 +152,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = 0;
             isDead = true;
             OnLivesChanged(this, EventArgs.Empty);
+            Respawn();
         }
         else if (currentHealth > 0)
             isDead = false;
@@ -174,8 +175,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         }
         //reduces parent object's health by the amount variable
         Health -= amount;
-        if (OnHealthChanged != null)
-            OnHealthChanged(this, EventArgs.Empty); //triggers event for the ui to see
+        OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage");
     }

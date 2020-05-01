@@ -21,7 +21,7 @@ public class EnemyWalkBehaviour : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
     TODO:
-            //Fix enemy 
+            //Fix enemy look at behaviour
         //enemy.LookAtPlayer();
 
         Vector2 target = new Vector2(playerTransform.position.x, playerTransform.position.y);

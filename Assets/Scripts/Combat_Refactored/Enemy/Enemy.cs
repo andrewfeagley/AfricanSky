@@ -36,6 +36,7 @@ public class Enemy : Actor, IHaveHealth
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = FindObjectOfType<Player>().transform;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
