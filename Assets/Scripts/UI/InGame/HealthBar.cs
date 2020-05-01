@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] Player haveHealth; //should be set in the inspector to either the player or an enemy
+    [SerializeField] IHaveHealth haveHealth; //should be set in the inspector to either the player or an enemy
     Image Health;
     float Fill;
-    [SerializeField] Image image;
-    Player p;
+    [SerializeField] Slider slider;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,16 @@ public class HealthBar : MonoBehaviour
         //Looks for an event of OnHealthChanged in the IHaveHealth variable
         haveHealth.OnHealthChanged += HaveHealth_OnHealthChanged;
 
-
-        if (image == null)
-            image = GetComponent<Image>();
+        if (slider == null)
+            slider = GetComponent<Slider>();
 
         //Changes the value of the slider to the value of the IHaveHealth variable
-        image.fillAmount = haveHealth.Health / 100;
+        slider.maxValue = haveHealth.Health;
+        slider.value = haveHealth.Health;
     }
 
     private void HaveHealth_OnHealthChanged(object sender, System.EventArgs e)
-    {        
-        image.fillAmount = haveHealth.Health / 100;
+    {
+        slider.value = haveHealth.Health;
     }
 }
