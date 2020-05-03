@@ -73,6 +73,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     void Respawn()
     {
+        Debug.Log("Respawned");
         if(Lives > 0)
         {
             Health = maxHealth;
@@ -150,10 +151,12 @@ public class Player : Actor, IHaveHealth, IHaveLives
     {
         if(currentHealth <= 0)
         {
+            Debug.Log("Current health < 0");
             currentHealth = 0;
             isDead = true;
-            OnLivesChanged(this, EventArgs.Empty);
             Respawn();
+            OnLivesChanged?.Invoke(this, EventArgs.Empty);
+            
         }
         else if (currentHealth > 0)
             isDead = false;
