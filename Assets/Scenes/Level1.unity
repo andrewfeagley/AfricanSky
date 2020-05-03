@@ -3907,7 +3907,7 @@ PrefabInstance:
     - target: {fileID: 2004521795196989900, guid: 6f7f04d50ed656f48bbe49de5ad61dc5,
         type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2004521795196989901, guid: 6f7f04d50ed656f48bbe49de5ad61dc5,
         type: 3}
@@ -4614,6 +4614,7 @@ GameObject:
   - component: {fileID: 1226810782}
   - component: {fileID: 1226810784}
   - component: {fileID: 1226810783}
+  - component: {fileID: 1226810785}
   m_Layer: 5
   m_Name: LivesText
   m_TagString: Untagged
@@ -4680,6 +4681,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226810781}
   m_CullTransparentMesh: 0
+--- !u!114 &1226810785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226810781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e90ac7021035f4da4e92ec09b1758d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1226810783}
 --- !u!1 &1229544979
 GameObject:
   m_ObjectHideFlags: 0

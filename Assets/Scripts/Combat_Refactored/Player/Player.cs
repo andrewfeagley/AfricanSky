@@ -74,9 +74,10 @@ public class Player : Actor, IHaveHealth, IHaveLives
     void Respawn()
     {
         Debug.Log("Respawned");
-        if(Lives > 0)
+        if(Lives != 0)
         {
             Health = maxHealth;
+            OnHealthChanged?.Invoke(this, EventArgs.Empty);
             animator.ResetTrigger("IsDead");
         }
         else //Game over stuff goes here, should probably be moved to a game manager and use an event to tell it the player died
@@ -151,12 +152,12 @@ public class Player : Actor, IHaveHealth, IHaveLives
     {
         if(currentHealth <= 0)
         {
+            LivesDecreased(1);
             Debug.Log("Current health < 0");
             currentHealth = 0;
             isDead = true;
-            Respawn();
-            OnLivesChanged?.Invoke(this, EventArgs.Empty);
-            
+            //OnLivesChanged?.Invoke(this, EventArgs.Empty);
+            Respawn();    
         }
         else if (currentHealth > 0)
             isDead = false;
@@ -166,6 +167,12 @@ public class Player : Actor, IHaveHealth, IHaveLives
     public void LivesIncreased(int amount)
     {
         Lives += amount;
+        OnLivesChanged.Invoke(this, EventArgs.Empty);
+    }
+
+    public void LivesDecreased(int amount)
+    {
+        Lives -= amount;
         OnLivesChanged.Invoke(this, EventArgs.Empty);
     }
     #endregion
