@@ -104,7 +104,7 @@ public class ETutorialController : MonoBehaviour
             anim.Play("Walk");
             EnemyMove();
             Destroy(gameObject);
-            gosign.SetActive(true);
+            
         }
     }
 
@@ -121,6 +121,9 @@ public class ETutorialController : MonoBehaviour
     {
         GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
         GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
+        CameraController.isFollowing = true;
+        gosign.SetActive(true);
+        Debug.Log(GameManager.enemiesKilled);
         Manage.SetActive(true);
     }
 

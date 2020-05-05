@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    private void FixedUpdate()
+
+    private void Update()
     {
         if (GameManager.enemiesKilled == 1 && CameraController.isFollowing == false)
         {
