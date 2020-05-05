@@ -9,7 +9,7 @@ public class InGameQuit : MonoBehaviour
 
     private void Start()
     {
-        gameMenu = GameObject.Find("InGame");
+        gameMenu = GameObject.Find("Pause");
         gameMenu.SetActive(false);
     }
     void FixedUpdate()
