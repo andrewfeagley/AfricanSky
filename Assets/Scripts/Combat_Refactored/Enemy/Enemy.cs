@@ -31,6 +31,8 @@ public class Enemy : Actor, IHaveHealth
     [HideInInspector]
     public bool isDead = false;
 
+    [SerializeField] public float chaseRange = 10f;
+
     public float Health { get => currentHealth; set => currentHealth = value; }
 
     // Start is called before the first frame update
@@ -73,22 +75,6 @@ public class Enemy : Actor, IHaveHealth
         else if (currentHealth > 0)
             isDead = false;
         animator.SetBool("isDead", isDead);
-    }
-
-
-    public void LookInDirectionMoving()
-    {
-        //Checks for input and sets the player to look that way
-        if (rigidbody2D.velocity.x > 0 && isFlipped)
-        {
-            //spriteRenderer.flipX = false;
-            Flip();
-        }
-        else if (rigidbody2D.velocity.x < 0 && !isFlipped)
-        {
-            //spriteRenderer.flipX = true;
-            Flip();
-        }
     }
 
     void Flip()

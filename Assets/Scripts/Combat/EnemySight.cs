@@ -12,7 +12,8 @@ public class EnemySight : MonoBehaviour
 
     private void Start()
     {
-        enemy.GetComponent<Enemy>();
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemy?.GetComponent<Enemy>();
         enemyScript.enabled = false;
     }
 

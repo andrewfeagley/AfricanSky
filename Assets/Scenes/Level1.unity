@@ -532,6 +532,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2196031013197901750, guid: c7a7347067de54d438355b065e70947a,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196031013197901750, guid: c7a7347067de54d438355b065e70947a,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2196031013197901752, guid: c7a7347067de54d438355b065e70947a,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -948,7 +958,7 @@ PrefabInstance:
     - target: {fileID: 7648280750088695477, guid: e2eb203ceea09a24999ba1e468ac3906,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7648280750088695477, guid: e2eb203ceea09a24999ba1e468ac3906,
         type: 3}
@@ -1042,7 +1052,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 166692615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02eec04ec9b50c4eadf668c84a88055, type: 3}
+  m_Script: {fileID: 11500000, guid: ae940518aa0beff499375597451091e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &177099004
@@ -4006,7 +4016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139605704}
-  enemy: {fileID: 0}
+  enemy: {fileID: 81594023}
 --- !u!58 &881062090
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9709,7 +9719,7 @@ PrefabInstance:
     - target: {fileID: 9085247284413398352, guid: 7a9fb7c20b3d4964da1734df9dc798fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4300001
+      value: -9.58
       objectReference: {fileID: 0}
     - target: {fileID: 9085247284413398352, guid: 7a9fb7c20b3d4964da1734df9dc798fd,
         type: 3}

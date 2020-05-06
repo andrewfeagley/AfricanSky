@@ -22,11 +22,16 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
     {
         Vector2 target = new Vector2(playerTransform.position.x, playerTransform.position.y);
         Vector2 newPosition = Vector2.MoveTowards(rigidbody2D.position, target, enemy.walkSpeed * Time.fixedDeltaTime);
-        rigidbody2D.MovePosition(newPosition);
+        //rigidbody2D.MovePosition(newPosition);
 
         if (Vector2.Distance(playerTransform.position, rigidbody2D.position) <= enemy.attackRange)
         {
             animator.SetTrigger("Punch");
+        }
+
+        if (Vector2.Distance(playerTransform.position, rigidbody2D.position) <= enemy.chaseRange)
+        {
+            animator.SetTrigger("isMoving");
         }
     }
 
