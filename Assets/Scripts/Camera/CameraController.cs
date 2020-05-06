@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),4.54f,-20);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMin, xMax),4.54f,-100f);
         //Searches for the playerXPos position
         playerXPos = new Vector3(playerTarget.transform.position.x, 4.54f, -100f);
         //Checks if isFollowing is true and then proceeds to follow the playerXpos
@@ -36,7 +36,7 @@ public class CameraController : MonoBehaviour
 
             if (transform.position.y < playerTarget.transform.position.y)
             {
-                transform.position = new Vector3(playerTarget.transform.position.x, 0f , -100f);
+                transform.position = new Vector3(playerTarget.transform.position.x, 4.54f , -100f);
             }
 
         }

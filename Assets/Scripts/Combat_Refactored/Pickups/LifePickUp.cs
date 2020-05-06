@@ -16,7 +16,8 @@ public class LifePickUp : Pickup
 
     public override void PickUp(int amountToRestore)
     {
-        player.Lives += amountToRestore;
+        player.LivesIncreased(amountToRestore);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
