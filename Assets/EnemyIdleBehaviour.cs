@@ -14,6 +14,7 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
         playerTransform = GameObject.FindObjectOfType<Player>().transform;
         enemy = animator.GetComponent<Enemy>();
         rigidbody2D = enemy.GetComponent<Rigidbody2D>();
+        
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -50,7 +50,6 @@ public class Enemy : Actor, IHaveHealth
         CheckForDeath();
         if(!isDead)
             LookAtPlayer();
-        animator.SetFloat(2, rigidbody2D.velocity.x);
     }
 
     void CheckForDeath()
