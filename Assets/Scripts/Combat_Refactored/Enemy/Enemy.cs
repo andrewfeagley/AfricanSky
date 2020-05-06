@@ -71,10 +71,13 @@ public class Enemy : Actor, IHaveHealth
         {
             currentHealth = 0;
             isDead = true;
+            CameraController.isFollowing = true;
+            this.gameObject.SetActive(false);
         }
         else if (currentHealth > 0)
             isDead = false;
         animator.SetBool("isDead", isDead);
+        
     }
 
     void Flip()

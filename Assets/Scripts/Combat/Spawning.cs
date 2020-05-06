@@ -13,6 +13,7 @@ public class Spawning : MonoBehaviour
 
     private void Start()
     {
+        gameObject.SetActive(true);
         InvokeRepeating("SpawnEnemy", 0f, 5f);
     }
     private void Update()
