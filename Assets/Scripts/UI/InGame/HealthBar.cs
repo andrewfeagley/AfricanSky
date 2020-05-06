@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         if(haveHealth == null)
-            haveHealth = FindObjectOfType<Player>();
+            haveHealth = GetComponentInParent<IHaveHealth>();
         //Looks for an event of OnHealthChanged in the IHaveHealth variable
         haveHealth.OnHealthChanged += HaveHealth_OnHealthChanged;
 
