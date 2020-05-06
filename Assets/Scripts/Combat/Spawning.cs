@@ -9,9 +9,11 @@ public class Spawning : MonoBehaviour
     int randomSpawnPoint, randomEnemy;
     public static bool spawnAllowed;
     public Transform[] spawnPoints;
+    [SerializeField] int maxEnemies;
 
     private void Start()
     {
+        gameObject.SetActive(true);
         InvokeRepeating("SpawnEnemy", 0f, 5f);
     }
     private void Update()
@@ -28,12 +30,13 @@ public class Spawning : MonoBehaviour
     }
     void SpawnEnemy()
     {
-
+        // if enemies on screen >= max enemies
         if (spawnAllowed)
         {
             randomSpawnPoint = Random.Range(0, spawnPoints.Length);
             randomEnemy = Random.Range(0, enemy.Length);
-            Instantiate(enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+           GameObject enemyClone = Instantiate(enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+            enemyClone.SetActive(true);
         }
     }
 }
