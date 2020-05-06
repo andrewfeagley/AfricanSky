@@ -175,6 +175,12 @@ public class Player : Actor, IHaveHealth, IHaveLives
         Lives -= amount;
         OnLivesChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    public void LivesDecreased(int amount)
+    {
+        Lives -= amount;
+        OnLivesChanged.Invoke(this, EventArgs.Empty);
+    }
     #endregion
 
     #region Health Events and Logic
