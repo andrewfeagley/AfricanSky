@@ -36,10 +36,21 @@ public class Enemy : Actor, IHaveHealth
     // Start is called before the first frame update
     void Start()
     {
+        SetUpComponents();
+    }
+
+    void SetUpComponents()
+    {
         playerTransform = FindObjectOfType<Player>().transform;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
+        this.gameObject.SetActive(true);
+    }
+
+    void OnEnable()
+    {
+        SetUpComponents();
     }
 
     // Update is called once per frame
