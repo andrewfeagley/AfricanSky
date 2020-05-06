@@ -167,7 +167,13 @@ public class Player : Actor, IHaveHealth, IHaveLives
     public void LivesIncreased(int amount)
     {
         Lives += amount;
-        OnLivesChanged.Invoke(this, EventArgs.Empty);
+        OnLivesChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void LivesDecreased(int amount)
+    {
+        Lives -= amount;
+        OnLivesChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void LivesDecreased(int amount)

@@ -5,6 +5,7 @@ using Pathfinding;
 
 public class Enemy_AI : Actor
 {
+    Enemy enemy;
     public Transform target;
 
     Seeker seeker;
@@ -61,7 +62,10 @@ public class Enemy_AI : Actor
         Vector2 direction = (Vector2)path.vectorPath[currentWaypoint] - rb2D.position.normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        rb2D.MovePosition(Vector2.MoveTowards(rb2D.position,path.vectorPath[currentWaypoint], speed * Time.fixedDeltaTime));
+        //rb2D.MovePosition(Vector2.MoveTowards(rb2D.position,path.vectorPath[currentWaypoint], speed * Time.fixedDeltaTime));
+        
+
+        rb2D.velocity = force;
 
         float distance = Vector2.Distance(rb2D.position, path.vectorPath[currentWaypoint]);
 

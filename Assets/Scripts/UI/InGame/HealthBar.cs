@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] IHaveHealth haveHealth; //should be set in the inspector to either the player or an enemy
