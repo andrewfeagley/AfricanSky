@@ -479,7 +479,7 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1227726418
@@ -661,7 +661,7 @@ SpriteRenderer:
   m_Size: {x: 0.5, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1903431222
@@ -753,7 +753,7 @@ PrefabInstance:
     - target: {fileID: 2196031013197901754, guid: c7a7347067de54d438355b065e70947a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7a7347067de54d438355b065e70947a, type: 3}
@@ -992,6 +992,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hurtbox
       objectReference: {fileID: 0}
+    - target: {fileID: 7265615163023821792, guid: 7e3bfa3e0d621804285bdcb7ee68092c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7785641626052224128, guid: 7e3bfa3e0d621804285bdcb7ee68092c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1189,6 +1194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HitBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943108623338171442, guid: 5129f1ce92e673644a9e7df9a21b1360,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5129f1ce92e673644a9e7df9a21b1360, type: 3}
