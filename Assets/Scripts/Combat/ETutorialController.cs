@@ -9,7 +9,7 @@ public class ETutorialController : MonoBehaviour
     public static bool inSight;
     public GameObject player;
     private Rigidbody2D rigidBody;
-    public static GameObject gosign;
+
 
     //Speed in which the Enemy moves.
     private float movementSpeed;
@@ -39,8 +39,6 @@ public class ETutorialController : MonoBehaviour
         anim = GetComponent<Animator>();
         //Searches for the object with the Player tag
         player = GameObject.FindGameObjectWithTag("Player");
-        gosign = GameObject.FindGameObjectWithTag("GO");
-        gosign.SetActive(false);
         rigidBody = GetComponent<Rigidbody2D>();
         movementSpeed = walkMoveSpeed;
         currentSprite = GetComponent<SpriteRenderer>();
@@ -122,7 +120,6 @@ public class ETutorialController : MonoBehaviour
         GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
         GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
         CameraController.isFollowing = true;
-        gosign.SetActive(true);
         Debug.Log(GameManager.enemiesKilled);
         Manage.SetActive(true);
     }

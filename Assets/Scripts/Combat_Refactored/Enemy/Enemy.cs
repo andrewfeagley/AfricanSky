@@ -72,6 +72,7 @@ public class Enemy : Actor, IHaveHealth
             currentHealth = 0;
             isDead = true;
             CameraController.isFollowing = true;
+            Tutorial.gosign.SetActive(true);
             this.gameObject.SetActive(false);
         }
         else if (currentHealth > 0)

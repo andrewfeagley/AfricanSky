@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if (enemiesKilled == 6 && CameraController.isFollowing == false) {
             CameraController.isFollowing = true;
-            ETutorialController.gosign.SetActive(true);
+            Tutorial.gosign.SetActive(true);
             enemiesKilled = 0;
         }
 
