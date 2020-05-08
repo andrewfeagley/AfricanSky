@@ -5,12 +5,19 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
 
+    public static GameObject gosign;
+
+    private void Start()
+    {
+        gosign = GameObject.FindGameObjectWithTag("GO");
+        gosign.SetActive(false);
+    }
     private void Update()
     {
         if (GameManager.enemiesKilled == 1 && CameraController.isFollowing == false)
         {
             CameraController.isFollowing = true;
-            ETutorialController.gosign.SetActive(true);
+            gosign.SetActive(true);
             GameManager.enemiesKilled = 0;
         }
     }
