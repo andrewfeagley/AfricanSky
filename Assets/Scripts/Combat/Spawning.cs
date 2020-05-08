@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawning : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Spawning : MonoBehaviour
     public static bool spawnAllowed;
     public Transform[] spawnPoints;
     [SerializeField] int maxEnemies;
+
+    public event EventHandler OnEnemySpawned;
+    public Enemy enemySpawned;
 
     private void Start()
     {
@@ -33,9 +38,13 @@ public class Spawning : MonoBehaviour
         // if enemies on screen >= max enemies
         if (spawnAllowed)
         {
-            randomSpawnPoint = Random.Range(0, spawnPoints.Length);
-            randomEnemy = Random.Range(0, enemy.Length);
-           GameObject enemyClone = Instantiate(enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+            randomSpawnPoint = UnityEngine.Random.Range(0, spawnPoints.Length);
+            randomEnemy = UnityEngine.Random.Range(0, enemy.Length);
+            GameObject enemyClone = new GameObject();
+            enemyClone = Instantiate(enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity);
+            enemySpawned = enemyClone.GetComponent<Enemy>();
+            OnEnemySpawned.Invoke(enemySpawned, EventArgs.Empty); //This is to tell the EnemyTracker that an enemy has been spawned
+            
             enemyClone.SetActive(true);
         }
     }

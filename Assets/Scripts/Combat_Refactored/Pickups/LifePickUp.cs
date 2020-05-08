@@ -27,4 +27,10 @@ public class LifePickUp : Pickup
             PickUp(livesToAdd);
         }
     }
+
+    private void OnEnable()
+    {
+        transform.SetParent(null);
+        transform.localScale = Vector3.one;
+    }
 }
