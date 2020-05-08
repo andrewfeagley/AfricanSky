@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthBar : HealthBar
+public class PlayerHealthBar : MonoBehaviour
 {
     [SerializeField]
     Player player; //should be set in the inspector to either the player or an enemy
+    [SerializeField]
     Image imageFill;
 
     // Start is called before the first frame update

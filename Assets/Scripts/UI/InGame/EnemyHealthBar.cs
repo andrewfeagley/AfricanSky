@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBar : HealthBar
+public class EnemyHealthBar : MonoBehaviour
 {
     [SerializeField]
     Enemy enemy;
@@ -27,6 +27,6 @@ public class EnemyHealthBar : HealthBar
 
     private void Enemy_OnHealthChanged(object sender, System.EventArgs e)
     {
-        imageFill.fillAmount = enemy.Health / (enemyStartingHealth * 100);
+        imageFill.fillAmount = enemy.Health / (enemyStartingHealth);
     }
 }
