@@ -47,6 +47,7 @@ public class Enemy : Actor, IHaveHealth
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
+        animator.SetBool("isMoving", false);
         this.gameObject.SetActive(true);
     }
 
@@ -65,14 +66,20 @@ public class Enemy : Actor, IHaveHealth
             LookAtPlayer();
     }
 
+    public event EventHandler OnDeath;
     void CheckForDeath()
     {
         if (currentHealth <= 0)
         {
             currentHealth = 0;
             isDead = true;
+
+            OnDeath?.Invoke(this,EventArgs.Empty);
+
             CameraController.isFollowing = true;
             Tutorial.gosign.SetActive(true);
+
+            DropPickup();
             this.gameObject.SetActive(false);
         }
         else if (currentHealth > 0)
@@ -81,13 +88,17 @@ public class Enemy : Actor, IHaveHealth
         
     }
 
-    void Flip()
+    /// <summary>
+    /// These gameobjects are the prefabs the enemy will drop on death
+    /// </summary>
+    [SerializeField] GameObject lifePickup, healthPickup;
+    void DropPickup()
     {
-        isFlipped = !isFlipped;
-        Vector2 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        Instantiate(lifePickup,this.transform);
+        lifePickup.transform.parent = null;
+        
     }
+
 
     public void LookAtPlayer()
     {
