@@ -169,6 +169,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     public void LivesIncreased(int amount)
     {
+        //play heal sound
         Lives += amount;
         OnLivesChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -204,6 +205,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     public void IncreaseHealth(float amount)
     {
+        //play heal sound
         Health += amount;
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
 
