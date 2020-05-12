@@ -14,8 +14,7 @@ public class EnemySight : MonoBehaviour
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         enemy?.GetComponent<Enemy>();
-        enemyScript = enemy.GetComponent<Enemy>();
-        //enemyScript.enabled = false;
+        enemyScript.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,7 +22,7 @@ public class EnemySight : MonoBehaviour
         if (other.gameObject == player)
         {
             inSight = true;
-            //enemyScript.enabled = true;
+            enemyScript.enabled = true;
             Destroy(gameObject);
         }
     }

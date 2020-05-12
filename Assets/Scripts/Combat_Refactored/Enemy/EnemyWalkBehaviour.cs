@@ -15,12 +15,15 @@ public class EnemyWalkBehaviour : StateMachineBehaviour
         playerTransform = GameObject.FindObjectOfType<Player>().transform;
         rigidbody2D = animator.GetComponent<Rigidbody2D>();
         enemy = animator.GetComponent<Enemy>();
-        animator.SetBool("isMoving", true);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+    TODO:
+            //Fix enemy look at behaviour
+        //enemy.LookAtPlayer();
+
         Vector2 target = new Vector2(playerTransform.position.x, playerTransform.position.y);
         Vector2 newPosition = Vector2.MoveTowards(rigidbody2D.position, target, enemy.walkSpeed * Time.fixedDeltaTime);
         rigidbody2D.MovePosition(newPosition);
@@ -28,11 +31,6 @@ public class EnemyWalkBehaviour : StateMachineBehaviour
         if(Vector2.Distance(playerTransform.position, rigidbody2D.position) <= enemy.attackRange)
         {
             animator.SetTrigger("Punch");
-        }
-
-        if (Vector2.Distance(playerTransform.position, rigidbody2D.position) <= enemy.chaseRange)
-        {
-            rigidbody2D.MovePosition(newPosition);
         }
     }
 
