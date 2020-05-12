@@ -404,7 +404,7 @@ MonoBehaviour:
   rigidbody2D: {fileID: 0}
   spriteRenderer: {fileID: 0}
   attackRange: 3
-  walkSpeed: 1
+  walkSpeed: 2
   currentHealth: 0
   maxHealth: 50
   isFlipped: 0

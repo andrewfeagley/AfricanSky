@@ -20,7 +20,7 @@ public class CameraStop : MonoBehaviour
             otherObject = otherObject.transform.parent.gameObject;
             CameraController.isFollowing = false;
             //gameObject.SetActive(false);
-            Tutorial.gosign.SetActive(false);
+            //Tutorial.gosign.SetActive(false);
         }
     }
 

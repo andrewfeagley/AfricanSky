@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: chaseRange
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2247184447617320903, guid: e05bd7781128aeb419d50d437ae1d73c,
+        type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2247184447617320904, guid: e05bd7781128aeb419d50d437ae1d73c,
         type: 3}
       propertyPath: m_LocalPosition.x

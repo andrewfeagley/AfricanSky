@@ -22,9 +22,10 @@ public class Spawning : MonoBehaviour
         {
             spawnAllowed = true;
         }
+
         else if (CameraController.isFollowing == true)
         {
-            spawnAllowed = false;
+           // spawnAllowed = false;
             GameManager.enemiesKilled = 0;
         }
     }
