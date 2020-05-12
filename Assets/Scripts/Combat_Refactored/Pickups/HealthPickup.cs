@@ -33,10 +33,4 @@ public class HealthPickup : Pickup
             PickUp(healthToRestore);
         }
     }
-
-    private void OnEnable()
-    {
-        transform.SetParent(null);
-        //this.gameObject.transform.localScale = Vector3.one;
-    }
 }

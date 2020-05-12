@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Actor, IHaveHealth, IHaveLives
 {
-    public Transform SpawnPoint;
     public Transform playerTransform;
     public Animator animator;
     public Rigidbody2D rigidbody2D;
@@ -41,6 +40,8 @@ public class Player : Actor, IHaveHealth, IHaveLives
     [HideInInspector]
     public float moveVertical;
     [HideInInspector]
+    public bool isJumpedPressed;
+    [HideInInspector]
     public bool isAttackPressed;
     #endregion
 
@@ -68,21 +69,16 @@ public class Player : Actor, IHaveHealth, IHaveLives
         CheckForMovement();
         CheckForDeath();
         KeepHealthFromExceedingMax();
-        KeepLivesFromExceedingMin();
     }
 
-    /// <summary>
-    /// Call this from the animator
-    /// </summary>
     void Respawn()
     {
         Debug.Log("Respawned");
-        if(Lives > 0)
+        if(Lives >= 0)
         {
-            LivesDecreased(0);//for some reason zero causes this function to reduce lives by 1 and 1 causes it to reduce by 2??????
+            LivesDecreased(1);
             Health = maxHealth;
-            OnHealthChanged?.Invoke(this, EventArgs.Empty); //sets the player's health back to their starting health
-            rigidbody2D.position = (SpawnPoint.position); //sends player back to their start location
+            OnHealthChanged?.Invoke(this, EventArgs.Empty);
             animator.ResetTrigger("IsDead");
         }
         else //Game over stuff goes here, should probably be moved to a game manager and use an event to tell it the player died
@@ -97,23 +93,24 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = maxHealth;
     }
 
-    void KeepLivesFromExceedingMin()
-    {
-        if (currentLives < 0)
-            currentLives = 0;
-    }
-
     void HandleInput()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
-        isAttackPressed = Input.GetButtonDown("Punch");
+        isJumpedPressed = Input.GetKeyDown(KeyCode.Space);
+        isAttackPressed = Input.GetKeyDown(KeyCode.Z);
     }
 
     public void Attack()
     {
         if(isAttackPressed)
             animator.SetBool("Punch", true);
+    }
+
+    public void CheckForJump()
+    {
+        if (isJumpedPressed)
+            animator.SetBool("Jump", true);
     }
 
     void CheckForMovement()
@@ -156,11 +153,12 @@ public class Player : Actor, IHaveHealth, IHaveLives
     {
         if(currentHealth <= 0)
         {
+           
             Debug.Log("Current health < 0");
             currentHealth = 0;
             isDead = true;
             //OnLivesChanged?.Invoke(this, EventArgs.Empty);
-            //Respawn();    
+            Respawn();    
         }
         else if (currentHealth > 0)
             isDead = false;

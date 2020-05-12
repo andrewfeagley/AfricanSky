@@ -11,7 +11,6 @@ public class PlayerPunchBehaviour : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Punch");
         player = animator.GetComponent<Player>();
         player.rigidbody2D.velocity = Vector2.zero;
         animator.SetBool("Punch", false);
