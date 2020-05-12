@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -65,10 +66,28 @@ public class Enemy : Actor, IHaveHealth
             LookAtPlayer();
     }
 
+    [SerializeField] GameObject lifePickup, healthPickup;
+    void DropPickup()
+    {
+        if (Random.value > 0.9)
+        {
+            Debug.Log("life pickup");
+            Instantiate(lifePickup, this.transform.position, Quaternion.identity);
+            lifePickup.transform.parent = null;
+        }
+        else
+        {
+            Debug.Log("health pickup");
+            Instantiate(healthPickup, this.transform.position, Quaternion.identity);
+            healthPickup.transform.parent = null;
+        }
+    }
+
     void CheckForDeath()
     {
         if (currentHealth <= 0)
         {
+            DropPickup();
             currentHealth = 0;
             isDead = true;
             CameraController.isFollowing = true;
@@ -114,6 +133,9 @@ public class Enemy : Actor, IHaveHealth
     /// <param name="amount">value to reduce health by when function is called, the amount belongs to the hitbox that collides with the hurtbox</param>
     public override void TakeDamage(float amount)
     {
+        animator.SetTrigger("isHit");
+        
+
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
         {

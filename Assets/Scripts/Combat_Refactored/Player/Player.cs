@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Actor, IHaveHealth, IHaveLives
 {
+    Vector2 spawn;
     public Transform playerTransform;
     public Animator animator;
     public Rigidbody2D rigidbody2D;
@@ -61,6 +62,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
         Lives = startingLives;
+        spawn = transform.position;
     }
 
     private void Update()
@@ -74,9 +76,11 @@ public class Player : Actor, IHaveHealth, IHaveLives
     void Respawn()
     {
         Debug.Log("Respawned");
-        if(Lives >= 0)
+        transform.position = spawn;
+
+        if(Lives > 0)
         {
-            LivesDecreased(1);
+            LivesDecreased(0); //set to 0?
             Health = maxHealth;
             OnHealthChanged?.Invoke(this, EventArgs.Empty);
             animator.ResetTrigger("IsDead");
@@ -97,8 +101,8 @@ public class Player : Actor, IHaveHealth, IHaveLives
     {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
-        isJumpedPressed = Input.GetKeyDown(KeyCode.Space);
-        isAttackPressed = Input.GetKeyDown(KeyCode.Z);
+        //isJumpedPressed = Input.GetKeyDown(KeyCode.Space);
+        isAttackPressed = Input.GetButtonDown("Fire1");
     }
 
     public void Attack()
@@ -158,7 +162,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = 0;
             isDead = true;
             //OnLivesChanged?.Invoke(this, EventArgs.Empty);
-            Respawn();    
+            //Respawn();    
         }
         else if (currentHealth > 0)
             isDead = false;
@@ -187,6 +191,9 @@ public class Player : Actor, IHaveHealth, IHaveLives
     /// <param name="amount">value to reduce health by when function is called, the amount belongs to the hitbox that collides with the hurtbox</param>
     public override void TakeDamage(float amount)
     {
+        ChangeColor(Color.gray);
+        Invoke("ResetColor", 0.5f);
+   
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
         {
@@ -198,6 +205,16 @@ public class Player : Actor, IHaveHealth, IHaveLives
         OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage.");
+    }
+
+    void ChangeColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
+    void ResetColor()
+    {
+        spriteRenderer.color = Color.white;
     }
 
     public void IncreaseHealth(float amount)

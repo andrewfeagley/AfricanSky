@@ -311,7 +311,7 @@ SpriteRenderer:
   m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 523e8eadc9d14844e9545ec07229c5e7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -378,7 +378,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -406,13 +406,17 @@ MonoBehaviour:
   attackRange: 3
   walkSpeed: 1
   currentHealth: 0
-  maxHealth: 100
+  maxHealth: 50
   isFlipped: 0
   isMoving: 0
   isJumpedPressed: 0
   isAttackPressed: 0
   isDead: 0
-  chaseRange: 10
+  chaseRange: 20
+  lifePickup: {fileID: 1858645431628798605, guid: b551d860eb17e1c488e47d61464d04c2,
+    type: 3}
+  healthPickup: {fileID: 4872293153167703240, guid: 9e91f03744924f943a834c1ce363cfe7,
+    type: 3}
 --- !u!114 &2247184447617320902
 MonoBehaviour:
   m_ObjectHideFlags: 0

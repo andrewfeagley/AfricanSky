@@ -412,6 +412,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef09b9e231c1684d9b368ceeec347de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1102 &2897293703893337364
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlayerHurt
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 766fc7a40bf32bf4e8f4a3070349c38c, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1107 &3151306518637094376
 AnimatorStateMachine:
   serializedVersion: 5
@@ -448,6 +474,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 3988070748339791228}
     m_Position: {x: 275, y: 255, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 2897293703893337364}
+    m_Position: {x: 310, y: 320, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 9071773960935263215}
