@@ -6,28 +6,23 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class LifeTracker : MonoBehaviour
 {
-    Player player;
+    IHaveLives haveLives;
     [SerializeField] Text textField;
 
     void Start()
     {
-        if (player == null)
-            player = FindObjectOfType<Player>();
-        player.OnLivesChanged += HaveLives_OnLivesChanged;
+        if (haveLives == null)
+            haveLives = FindObjectOfType<Player>();
+        haveLives.OnLivesChanged += HaveLives_OnLivesChanged;
 
         if (textField == null)
             textField = GetComponent<Text>();
 
-        textField.text = player.Lives.ToString();
+        textField.text = haveLives.Lives.ToString();
     }
 
     private void HaveLives_OnLivesChanged(object sender, System.EventArgs e)
     {
-        textField.text = player.Lives.ToString();
-    }
-
-    private void OnDisable()
-    {
-        player.OnLivesChanged -= HaveLives_OnLivesChanged;
+        textField.text = haveLives.Lives.ToString();
     }
 }

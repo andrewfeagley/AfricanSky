@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : Actor, IHaveHealth, IHaveLives
 {
-    public Transform SpawnPoint;
+    Vector2 spawn;
     public Transform playerTransform;
     public Animator animator;
     public Rigidbody2D rigidbody2D;
@@ -41,6 +41,8 @@ public class Player : Actor, IHaveHealth, IHaveLives
     [HideInInspector]
     public float moveVertical;
     [HideInInspector]
+    public bool isJumpedPressed;
+    [HideInInspector]
     public bool isAttackPressed;
     #endregion
 
@@ -60,6 +62,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
         Lives = startingLives;
+        spawn = transform.position;
     }
 
     private void Update()
@@ -68,21 +71,18 @@ public class Player : Actor, IHaveHealth, IHaveLives
         CheckForMovement();
         CheckForDeath();
         KeepHealthFromExceedingMax();
-        KeepLivesFromExceedingMin();
     }
 
-    /// <summary>
-    /// Call this from the animator
-    /// </summary>
     void Respawn()
     {
         Debug.Log("Respawned");
+        transform.position = spawn;
+
         if(Lives > 0)
         {
-            LivesDecreased(0);//for some reason zero causes this function to reduce lives by 1 and 1 causes it to reduce by 2??????
+            LivesDecreased(0); //set to 0?
             Health = maxHealth;
-            OnHealthChanged?.Invoke(this, EventArgs.Empty); //sets the player's health back to their starting health
-            rigidbody2D.position = (SpawnPoint.position); //sends player back to their start location
+            OnHealthChanged?.Invoke(this, EventArgs.Empty);
             animator.ResetTrigger("IsDead");
         }
         else //Game over stuff goes here, should probably be moved to a game manager and use an event to tell it the player died
@@ -97,23 +97,24 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = maxHealth;
     }
 
-    void KeepLivesFromExceedingMin()
-    {
-        if (currentLives < 0)
-            currentLives = 0;
-    }
-
     void HandleInput()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
-        isAttackPressed = Input.GetButtonDown("Punch");
+        //isJumpedPressed = Input.GetKeyDown(KeyCode.Space);
+        isAttackPressed = Input.GetButtonDown("Fire1");
     }
 
     public void Attack()
     {
         if(isAttackPressed)
             animator.SetBool("Punch", true);
+    }
+
+    public void CheckForJump()
+    {
+        if (isJumpedPressed)
+            animator.SetBool("Jump", true);
     }
 
     void CheckForMovement()
@@ -156,6 +157,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
     {
         if(currentHealth <= 0)
         {
+           
             Debug.Log("Current health < 0");
             currentHealth = 0;
             isDead = true;
@@ -190,6 +192,9 @@ public class Player : Actor, IHaveHealth, IHaveLives
     /// <param name="amount">value to reduce health by when function is called, the amount belongs to the hitbox that collides with the hurtbox</param>
     public override void TakeDamage(float amount)
     {
+        ChangeColor(Color.gray);
+        Invoke("ResetColor", 0.5f);
+   
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
         {
@@ -201,6 +206,16 @@ public class Player : Actor, IHaveHealth, IHaveLives
         OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage.");
+    }
+
+    void ChangeColor(Color color)
+    {
+        spriteRenderer.color = color;
+    }
+
+    void ResetColor()
+    {
+        spriteRenderer.color = Color.white;
     }
 
     public void IncreaseHealth(float amount)

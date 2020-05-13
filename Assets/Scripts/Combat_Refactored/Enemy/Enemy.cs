@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,9 +12,6 @@ public class Enemy : Actor, IHaveHealth
     public Animator animator;
     public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
-
-    private AudioSource punch1Source;
-
 
     public float attackRange;
     [SerializeField]
@@ -46,12 +44,10 @@ public class Enemy : Actor, IHaveHealth
 
     void SetUpComponents()
     {
-        punch1Source = GetComponent<AudioSource>();
         playerTransform = FindObjectOfType<Player>().transform;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         Health = maxHealth;
-        animator.SetBool("isMoving", false);
         this.gameObject.SetActive(true);
     }
 
@@ -70,20 +66,32 @@ public class Enemy : Actor, IHaveHealth
             LookAtPlayer();
     }
 
-    public event EventHandler OnDeath;
+    [SerializeField] GameObject lifePickup, healthPickup;
+    void DropPickup()
+    {
+        if (Random.value > 0.9)
+        {
+            Debug.Log("life pickup");
+            Instantiate(lifePickup, this.transform.position, Quaternion.identity);
+            lifePickup.transform.parent = null;
+        }
+        else
+        {
+            Debug.Log("health pickup");
+            Instantiate(healthPickup, this.transform.position, Quaternion.identity);
+            healthPickup.transform.parent = null;
+        }
+    }
+
     void CheckForDeath()
     {
         if (currentHealth <= 0)
         {
+            DropPickup();
             currentHealth = 0;
             isDead = true;
-
-            OnDeath?.Invoke(this,EventArgs.Empty);
-
             CameraController.isFollowing = true;
             Tutorial.gosign.SetActive(true);
-
-            DropPickup();
             this.gameObject.SetActive(false);
         }
         else if (currentHealth > 0)
@@ -92,17 +100,13 @@ public class Enemy : Actor, IHaveHealth
         
     }
 
-    /// <summary>
-    /// These gameobjects are the prefabs the enemy will drop on death
-    /// </summary>
-    [SerializeField] GameObject lifePickup, healthPickup;
-    void DropPickup()
+    void Flip()
     {
-        Instantiate(lifePickup,this.transform);
-        lifePickup.transform.parent = null;
-        
+        isFlipped = !isFlipped;
+        Vector2 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
-
 
     public void LookAtPlayer()
     {
@@ -129,7 +133,8 @@ public class Enemy : Actor, IHaveHealth
     /// <param name="amount">value to reduce health by when function is called, the amount belongs to the hitbox that collides with the hurtbox</param>
     public override void TakeDamage(float amount)
     {
-        PlaySound();
+        animator.SetTrigger("isHit");
+        
 
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
@@ -143,10 +148,5 @@ public class Enemy : Actor, IHaveHealth
             OnHealthChanged(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage");
-    }
-
-    void PlaySound()
-    {
-        punch1Source.Play();
     }
 }

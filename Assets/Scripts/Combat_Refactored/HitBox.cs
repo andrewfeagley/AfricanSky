@@ -13,15 +13,7 @@ public class HitBox : MonoBehaviour
 
     private void Awake()
     {
-        if (hitBoxCollider == null)
-            hitBoxCollider = GetComponent<BoxCollider2D>();
-
         hitBoxCollider.isTrigger = true;
-        hitBoxCollider.enabled = false;
-    }
-
-    private void Start()
-    {
         hitBoxCollider.enabled = false;
     }
 }
