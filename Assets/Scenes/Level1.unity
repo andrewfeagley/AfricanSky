@@ -1227,7 +1227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259092237}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 53.74, y: 1.537739, z: 21.736328}
+  m_LocalPosition: {x: 59.84, y: 1.537739, z: 21.736328}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 613399372}
@@ -1652,7 +1652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373888921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.07, y: -7.74, z: 65.15625}
+  m_LocalPosition: {x: 48.05, y: -6.5, z: 65.15625}
   m_LocalScale: {x: 0.4618115, y: 0.4618115, z: 0.4618115}
   m_Children: []
   m_Father: {fileID: 612701450}
@@ -5286,7 +5286,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1379713097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 39.82, y: -8.69, z: 65.15625}
+  m_LocalPosition: {x: 46.28, y: -11.52, z: 65.15625}
   m_LocalScale: {x: 0.17342703, y: 0.17342703, z: 0.17342703}
   m_Children: []
   m_Father: {fileID: 612701450}
@@ -6246,6 +6246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbdfada6885494b41b0ae379b03fa192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hoverAudio: {fileID: 0}
 --- !u!114 &1540001617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6593,7 +6594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568326106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.15, y: -9.36, z: 65.15625}
+  m_LocalPosition: {x: 47.23, y: -10.3, z: 65.15625}
   m_LocalScale: {x: 0.6531808, y: 0.6531808, z: 0.6531808}
   m_Children: []
   m_Father: {fileID: 612701450}
@@ -8104,7 +8105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940942977}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.68, y: -7.73, z: 65.15625}
+  m_LocalPosition: {x: 46.42, y: -10.36, z: 65.15625}
   m_LocalScale: {x: 0.6531808, y: 0.6531808, z: 0.6531808}
   m_Children: []
   m_Father: {fileID: 612701450}
