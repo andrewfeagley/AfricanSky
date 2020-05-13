@@ -8,10 +8,6 @@ public class PlayerPunchBehaviour : StateMachineBehaviour
     Player player;
     HitBox attackHitBox;
 
-    //bool hitEnemy = false
-
-    //AudioSource [] whiffs
-    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -21,18 +17,9 @@ public class PlayerPunchBehaviour : StateMachineBehaviour
         attackHitBox = player.GetComponentInChildren<HitBox>();
         attackHitBox.hitBoxCollider.enabled = true;
 
-        //if hitEnemy
-        //play hit
-        //else
-        //play random whiff
+        player.PlaySound();
     }
 
-    //getrandomwhiff function
-
-    //ontrigger or on collision enter
-    //if collision.comparetag('enemy-hitbox')
-        //hitEnemy = true
-    
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

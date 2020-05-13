@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Enemy : Actor, IHaveHealth
 {
     public Transform playerTransform;
@@ -36,6 +37,9 @@ public class Enemy : Actor, IHaveHealth
 
     public float Health { get => currentHealth; set => currentHealth = value; }
 
+    [SerializeField] AudioClip[] punches;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,7 @@ public class Enemy : Actor, IHaveHealth
 
     void SetUpComponents()
     {
+        audioSource = GetComponent<AudioSource>();
         playerTransform = FindObjectOfType<Player>().transform;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -134,7 +139,7 @@ public class Enemy : Actor, IHaveHealth
     public override void TakeDamage(float amount)
     {
         animator.SetTrigger("isHit");
-        
+        PlaySound();
 
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
@@ -148,5 +153,24 @@ public class Enemy : Actor, IHaveHealth
             OnHealthChanged(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage");
+    }
+
+    void PlaySound()
+    {
+        AudioClip clip = null;
+
+        switch (Random.Range(1, 4)) {
+
+            case 1: clip = punches[0];
+                break;
+            case 2:
+                clip = punches[1];
+                break;
+            case 3:
+                clip = punches[2];
+                break;
+        }
+
+        audioSource.PlayOneShot(clip);
     }
 }
