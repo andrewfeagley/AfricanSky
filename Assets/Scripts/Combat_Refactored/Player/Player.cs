@@ -32,6 +32,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     AudioSource audioSource;
     [SerializeField] AudioClip respawn;
+    [SerializeField] AudioClip heal;
     [SerializeField] AudioClip[] whiffs;
 
     #region Animator Variables
@@ -194,7 +195,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = 0;
             isDead = true;
             //OnLivesChanged?.Invoke(this, EventArgs.Empty);
-            //Respawn();    
+            Respawn();    
         }
         else if (currentHealth > 0)
             isDead = false;
@@ -236,6 +237,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         //reduces parent object's health by the amount variable
         Health -= amount;
         OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
+        PlayHurtSound();
 
         Debug.Log($"The {name} was hit for {amount} damage.");
     }
@@ -252,11 +254,21 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     public void IncreaseHealth(float amount)
     {
-        //play heal sound
         Health += amount;
+        PlayHealSound();
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
-
         Debug.Log($"The {name} recovered {amount} health.");
+    }
+
+    void PlayHealSound()
+    {
+        //audioSource.clip = heal;
+        audioSource.PlayOneShot(heal);
+    }
+
+    void PlayHurtSound()
+    {
+        //audioSource.PlayOneShot(hurt);
     }
     #endregion
 }

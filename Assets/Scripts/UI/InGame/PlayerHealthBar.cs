@@ -27,5 +27,6 @@ public class PlayerHealthBar : MonoBehaviour
     private void Player_OnHealthChanged(object sender, System.EventArgs e)
     {
         imageFill.fillAmount = player.Health / 100;
+        //player.PlayHealSound();
     }
 }
