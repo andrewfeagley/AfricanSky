@@ -113,7 +113,18 @@ public class Enemy : Actor, IHaveHealth
 
     void OnDestroy()
     {
-        GameManager.enemiesKilled++;
+        if (gameObject.name.Contains("Enemy2"))
+        {
+            GameManager.Score += 20;
+        }
+        else if (gameObject.name.Contains("Enemy3"))
+        {
+            GameManager.Score += 30;
+        }
+        else
+        {
+            GameManager.Score += 10; //enemy 1
+        }
     }
 
     void Flip()

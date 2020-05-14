@@ -12,9 +12,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    public static int score;
-    
-    public static int enemiesKilled = 0;
+    public static int Score = 0;
 
     public static GameManager Instance { get; private set; }
 
@@ -33,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (enemiesKilled == 6 && CameraController.isFollowing == false) {
+        if (Score == 6 && CameraController.isFollowing == false) {
             CameraController.isFollowing = true;
             Tutorial.gosign.SetActive(true);
         }

@@ -134,7 +134,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
+        GameManager.Score = GameManager.Score + 1;
         //GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
     }
 

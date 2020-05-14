@@ -14,6 +14,6 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score: " + GameManager.enemiesKilled;
+        scoreText.text = "Score: " + GameManager.Score;
     }
 }
