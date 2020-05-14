@@ -33,6 +33,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
     AudioSource audioSource;
     [SerializeField] AudioClip respawn;
     [SerializeField] AudioClip heal;
+    [SerializeField] AudioClip [] hurt;
     [SerializeField] AudioClip[] whiffs;
 
     #region Animator Variables
@@ -268,7 +269,8 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     void PlayHurtSound()
     {
-        //audioSource.PlayOneShot(hurt);
+        int num = Random.Range(0, hurt.Length);
+        audioSource.PlayOneShot(hurt[num]);
     }
     #endregion
 }
