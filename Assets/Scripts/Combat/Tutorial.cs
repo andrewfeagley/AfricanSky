@@ -14,11 +14,11 @@ public class Tutorial : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.enemiesKilled == 1 && CameraController.isFollowing == false)
+        if (GameManager.Score == 1 && CameraController.isFollowing == false)
         {
             CameraController.isFollowing = true;
             gosign.SetActive(true);
-            GameManager.enemiesKilled = 0;
+            GameManager.Score = 0;
         }
     }
 }

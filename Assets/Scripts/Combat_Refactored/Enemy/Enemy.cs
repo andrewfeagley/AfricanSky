@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Enemy : Actor, IHaveHealth
 {
     public Transform playerTransform;
@@ -36,6 +37,9 @@ public class Enemy : Actor, IHaveHealth
 
     public float Health { get => currentHealth; set => currentHealth = value; }
 
+    [SerializeField] AudioClip[] punches;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,7 @@ public class Enemy : Actor, IHaveHealth
 
     void SetUpComponents()
     {
+        audioSource = GetComponent<AudioSource>();
         playerTransform = FindObjectOfType<Player>().transform;
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -69,11 +74,17 @@ public class Enemy : Actor, IHaveHealth
     [SerializeField] GameObject lifePickup, healthPickup;
     void DropPickup()
     {
-        if (Random.value > 0.9)
+        float num = Random.value;
+
+        if (num > 0.99)
         {
             Debug.Log("life pickup");
             Instantiate(lifePickup, this.transform.position, Quaternion.identity);
             lifePickup.transform.parent = null;
+        }
+        else if(num > 0.1)
+        {
+            //no pickup
         }
         else
         {
@@ -92,12 +103,28 @@ public class Enemy : Actor, IHaveHealth
             isDead = true;
             CameraController.isFollowing = true;
             Tutorial.gosign.SetActive(true);
-            this.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else if (currentHealth > 0)
             isDead = false;
         animator.SetBool("isDead", isDead);
         
+    }
+
+    void OnDestroy()
+    {
+        if (gameObject.name.Contains("Enemy2"))
+        {
+            GameManager.Score += 20;
+        }
+        else if (gameObject.name.Contains("Enemy3"))
+        {
+            GameManager.Score += 30;
+        }
+        else
+        {
+            GameManager.Score += 10; //enemy 1
+        }
     }
 
     void Flip()
@@ -134,7 +161,7 @@ public class Enemy : Actor, IHaveHealth
     public override void TakeDamage(float amount)
     {
         animator.SetTrigger("isHit");
-        
+        PlaySound();
 
         //this runs to make sure Health doesn't fall into the negatives
         if (Health <= 0)
@@ -148,5 +175,24 @@ public class Enemy : Actor, IHaveHealth
             OnHealthChanged(this, EventArgs.Empty); //triggers event for the ui to see
 
         Debug.Log($"The {name} was hit for {amount} damage");
+    }
+
+    void PlaySound()
+    {
+        AudioClip clip = null;
+
+        switch (Random.Range(1, 4)) {
+
+            case 1: clip = punches[0];
+                break;
+            case 2:
+                clip = punches[1];
+                break;
+            case 3:
+                clip = punches[2];
+                break;
+        }
+
+        audioSource.PlayOneShot(clip);
     }
 }

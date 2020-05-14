@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Player : Actor, IHaveHealth, IHaveLives
 {
     Vector2 spawn;
@@ -28,6 +30,11 @@ public class Player : Actor, IHaveHealth, IHaveLives
     [SerializeField]
     public float maxHealth = 1f; //the max health the player can have, starts out with this
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip respawn;
+    [SerializeField] AudioClip heal;
+    [SerializeField] AudioClip [] hurt;
+    [SerializeField] AudioClip[] whiffs;
 
     #region Animator Variables
     [HideInInspector]
@@ -57,6 +64,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         playerTransform = GetComponent<Transform>();
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -76,6 +84,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
     void Respawn()
     {
         Debug.Log("Respawned");
+        audioSource.PlayOneShot(respawn);
         transform.position = spawn;
 
         if(Lives > 0)
@@ -107,14 +116,39 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     public void Attack()
     {
-        if(isAttackPressed)
+        if (isAttackPressed)
+        {
             animator.SetBool("Punch", true);
+        }  
     }
 
-    public void CheckForJump()
+    public void PlaySound()
     {
-        if (isJumpedPressed)
-            animator.SetBool("Jump", true);
+        AudioClip clip = null;
+
+        switch (Random.Range(1, 7))
+        {
+            case 1:
+                clip = whiffs[0];
+                break;
+            case 2:
+                clip = whiffs[1];
+                break;
+            case 3:
+                clip = whiffs[2];
+                break;
+            case 4:
+                clip = whiffs[3];
+                break;
+            case 5:
+                clip = whiffs[4];
+                break;
+            case 6:
+                clip = whiffs[5];
+                break;
+        }
+
+        audioSource.PlayOneShot(clip);
     }
 
     void CheckForMovement()
@@ -162,7 +196,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
             currentHealth = 0;
             isDead = true;
             //OnLivesChanged?.Invoke(this, EventArgs.Empty);
-            //Respawn();    
+            Respawn();    
         }
         else if (currentHealth > 0)
             isDead = false;
@@ -171,6 +205,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
 
     public void LivesIncreased(int amount)
     {
+        //play heal sound
         Lives += amount;
         OnLivesChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -203,6 +238,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
         //reduces parent object's health by the amount variable
         Health -= amount;
         OnHealthChanged?.Invoke(this, EventArgs.Empty); //triggers event for the ui to see
+        PlayHurtSound();
 
         Debug.Log($"The {name} was hit for {amount} damage.");
     }
@@ -220,9 +256,21 @@ public class Player : Actor, IHaveHealth, IHaveLives
     public void IncreaseHealth(float amount)
     {
         Health += amount;
+        PlayHealSound();
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
-
         Debug.Log($"The {name} recovered {amount} health.");
+    }
+
+    void PlayHealSound()
+    {
+        //audioSource.clip = heal;
+        audioSource.PlayOneShot(heal);
+    }
+
+    void PlayHurtSound()
+    {
+        int num = Random.Range(0, hurt.Length);
+        audioSource.PlayOneShot(hurt[num]);
     }
     #endregion
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(BoxCollider2D))]
 public class HealthPickup : Pickup
 {
@@ -23,7 +22,7 @@ public class HealthPickup : Pickup
 
     public override void PickUp(int amountToRestore)
     {
-        player.IncreaseHealth(amountToRestore);
+        player.IncreaseHealth(amountToRestore);     
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
