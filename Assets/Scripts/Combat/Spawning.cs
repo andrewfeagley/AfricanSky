@@ -26,7 +26,7 @@ public class Spawning : MonoBehaviour
         else if (CameraController.isFollowing == true)
         {
            // spawnAllowed = false;
-            GameManager.enemiesKilled = 0;
+            //GameManager.enemiesKilled = 0;
         }
     }
     void SpawnEnemy()

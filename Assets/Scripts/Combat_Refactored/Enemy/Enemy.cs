@@ -103,12 +103,17 @@ public class Enemy : Actor, IHaveHealth
             isDead = true;
             CameraController.isFollowing = true;
             Tutorial.gosign.SetActive(true);
-            this.gameObject.SetActive(false);
+            Destroy(gameObject);
         }
         else if (currentHealth > 0)
             isDead = false;
         animator.SetBool("isDead", isDead);
         
+    }
+
+    void OnDestroy()
+    {
+        GameManager.enemiesKilled++;
     }
 
     void Flip()

@@ -118,7 +118,7 @@ public class ETutorialController : MonoBehaviour
     private void OnDestroy()
     {
         GameManager.enemiesKilled = GameManager.enemiesKilled + 1;
-        GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
+       // GameManager.totalEnemiesKilled = GameManager.totalEnemiesKilled + 1;
         CameraController.isFollowing = true;
         Debug.Log(GameManager.enemiesKilled);
         Manage.SetActive(true);
