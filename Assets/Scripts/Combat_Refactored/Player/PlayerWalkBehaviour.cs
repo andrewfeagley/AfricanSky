@@ -17,7 +17,6 @@ public class PlayerWalkBehaviour : StateMachineBehaviour
     {
         player.LookInDirectionMoving();
         player.rigidbody2D.velocity = Move();
-        player.CheckForJump();
         player.Attack();
     }
 

@@ -149,12 +149,6 @@ public class Player : Actor, IHaveHealth, IHaveLives
         audioSource.PlayOneShot(clip);
     }
 
-    public void CheckForJump()
-    {
-        if (isJumpedPressed)
-            animator.SetBool("Jump", true);
-    }
-
     void CheckForMovement()
     {
         if (moveHorizontal == 0 && moveVertical == 0)
