@@ -74,11 +74,17 @@ public class Enemy : Actor, IHaveHealth
     [SerializeField] GameObject lifePickup, healthPickup;
     void DropPickup()
     {
-        if (Random.value > 0.9)
+        float num = Random.value;
+
+        if (num > 0.99)
         {
             Debug.Log("life pickup");
             Instantiate(lifePickup, this.transform.position, Quaternion.identity);
             lifePickup.transform.parent = null;
+        }
+        else if(num > 0.1)
+        {
+            //no pickup
         }
         else
         {
