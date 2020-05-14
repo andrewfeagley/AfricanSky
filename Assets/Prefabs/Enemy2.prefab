@@ -412,7 +412,7 @@ MonoBehaviour:
   isJumpedPressed: 0
   isAttackPressed: 0
   isDead: 0
-  chaseRange: 20
+  chaseRange: 30
   punches:
   - {fileID: 8300000, guid: 7c528853afcfef74ebaf3923c1915608, type: 3}
   - {fileID: 8300000, guid: 2c12ca1a63a190141a92b1b2ce8d86f1, type: 3}
