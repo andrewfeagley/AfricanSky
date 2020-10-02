@@ -8,7 +8,7 @@ public class CameraFrameRate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(frameRate == 0 || frameRate == null)
+        if(frameRate == 0)
             Application.targetFrameRate = frameRate;
     }
 }

@@ -11,7 +11,7 @@ public class Enemy : Actor, IHaveHealth
 {
     public Transform playerTransform;
     public Animator animator;
-    public Rigidbody2D rigidbody2D;
+    new public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
 
     public float attackRange;
@@ -102,7 +102,6 @@ public class Enemy : Actor, IHaveHealth
             currentHealth = 0;
             isDead = true;
             CameraController.isFollowing = true;
-            Tutorial.gosign.SetActive(true);
             Destroy(gameObject);
         }
         else if (currentHealth > 0)

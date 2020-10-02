@@ -9,7 +9,7 @@ public class HealthPickup : Pickup
     int healthToRestore;
     Player player;
     [Tooltip("This should be a trigger and should be on the layer Pickups.")]
-    BoxCollider2D collider2D; //should be a trigger
+    new BoxCollider2D collider2D; //should be a trigger
 
     private void Awake()
     {

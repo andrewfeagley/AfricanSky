@@ -13,7 +13,7 @@ public class Player : Actor, IHaveHealth, IHaveLives
     Vector2 spawn;
     public Transform playerTransform;
     public Animator animator;
-    public Rigidbody2D rigidbody2D;
+    new public Rigidbody2D rigidbody2D;
     public SpriteRenderer spriteRenderer;
 
     [Tooltip("This should be at the character's feet, it collides with the environment.")]

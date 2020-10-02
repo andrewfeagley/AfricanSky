@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -154,7 +155,7 @@ Transform:
   m_GameObject: {fileID: 2004521795196989901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -8.2445, y: 8.2445, z: 8.2445}
   m_Children:
   - {fileID: 2004521794803081135}
   - {fileID: 6393778128990780523}
@@ -175,6 +176,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -196,8 +198,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -38890673
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 8578018991037762189, guid: 3f9e20950b32f894587100206a55a93d,
     type: 3}
@@ -205,7 +207,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.23, y: 0.35}
+  m_Size: {x: 1, y: 0.56274414}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -223,7 +225,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 2.9241207
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -269,7 +271,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 0.56274414}
-    newSize: {x: 0.23, y: 0.35}
+    newSize: {x: 1, y: 0.56274414}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -294,12 +296,17 @@ MonoBehaviour:
   rigidbody2D: {fileID: 2004521795196989903}
   spriteRenderer: {fileID: 2004521795196989902}
   environmentCollider: {fileID: 6373549282074991582}
-  walkSpeed: 1
+  walkSpeed: 3
   currentLives: 0
-  startingLives: 1
+  startingLives: 3
   currentHealth: 0
   maxHealth: 100
   respawn: {fileID: 8300000, guid: 6a99ba19ab1ae814dab8ee53babe7380, type: 3}
+  heal: {fileID: 8300000, guid: 6d0d337f87df8c4469a79184dd9aadc0, type: 3}
+  hurt:
+  - {fileID: 8300000, guid: 68f9f7175ead3df499c62a45cea75098, type: 3}
+  - {fileID: 8300000, guid: 35ad7f0fc6821284b84d7fa08eb87bde, type: 3}
+  - {fileID: 8300000, guid: 52234a17e3083f24c821f64f94b3a6ae, type: 3}
   whiffs:
   - {fileID: 8300000, guid: 8116607ec536009499ecd10d5f6a3d6b, type: 3}
   - {fileID: 8300000, guid: fdf4c99ac88c5e540956b3562ba28baf, type: 3}
@@ -327,18 +334,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.15}
+  m_Offset: {x: 0.0061085783, y: -0.18665095}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 0.56274414}
-    newSize: {x: 0.23, y: 0.35}
+    newSize: {x: 1, y: 0.56274414}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.1}
+  m_Size: {x: 0.22036168, y: 0.08371052}
   m_EdgeRadius: 0
 --- !u!82 &3998902816376896170
 AudioSource:

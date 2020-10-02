@@ -25,7 +25,6 @@ public class CameraStopTutorial : MonoBehaviour
             CameraController.isFollowing = false;
             gameObject.SetActive(false);
             Tut.SetActive(false);
-            Tutorial.gosign.SetActive(false);
             Spawn.SetActive(true);
         }
     }

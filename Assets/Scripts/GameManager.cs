@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICommand 
+public static class GameManager
 {
-     void Execute(CombatComponent go);
+    public static int Score{get;set;}
 }
